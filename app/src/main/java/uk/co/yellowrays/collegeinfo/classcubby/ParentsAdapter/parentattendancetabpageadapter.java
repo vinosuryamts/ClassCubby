@@ -43,7 +43,7 @@ public class parentattendancetabpageadapter extends FragmentPagerAdapter {
                 result = new Parents_Dashboard().newInstance("Parents_Dashboard");
                 break;
             case 1:
-                result = new Parents_Attendance_Main().newInstance("Parents_Attendance");
+                result = new Parents_Attendance_Main();
                 break;
             case 2:
                 result = new Parents_Assignment_Main_Activity().newInstance("Parents_Assignments");

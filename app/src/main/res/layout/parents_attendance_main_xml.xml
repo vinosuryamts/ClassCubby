@@ -52,7 +52,7 @@
                     app:progress_shader="sweep"
                     app:progress_text_size="25dp"
                     app:progress_background_color="@color/lightgrey"
-                    app:progress_text_color="@color/colorAccent"
+                    app:progress_text_color="@color/absent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentStart="true" />
 

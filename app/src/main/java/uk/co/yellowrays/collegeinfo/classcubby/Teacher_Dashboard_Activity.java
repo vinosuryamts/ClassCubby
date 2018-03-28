@@ -131,13 +131,7 @@ public class Teacher_Dashboard_Activity extends AppCompatActivity implements Tab
         view = (RelativeLayout) findViewById(R.id.mainpageoverallcontainer);
 
         viewPager = (CustomViewPager) findViewById(R.id.viewpager);
-        /*setupViewPager(viewPager);
-        viewPager.setPagingEnabled(false);
-        viewPager.beginFakeDrag();*/
-
         tabLayout = (CustomTabLayout) findViewById(R.id.tabs);
-        /*tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();*/
 
 
         counttext.setVisibility(View.INVISIBLE);
@@ -151,9 +145,7 @@ public class Teacher_Dashboard_Activity extends AppCompatActivity implements Tab
                 getnotificationcount();
             }
 
-        },5000,5000);
-
-        getnotificationcount();
+        },10000,10000);
 
         if(loogedinusertypeid.equals("2")){
             tabLayout.addTab(tabLayout.newTab().setText(getResources().getString(R.string.newsfeeds)));
@@ -399,44 +391,6 @@ public class Teacher_Dashboard_Activity extends AppCompatActivity implements Tab
                     finish();
                 }
 
-
-                /*sharedPreferences = getSharedPreferences(MY_PREFERENCES, MainActivity.MODE_PRIVATE);
-
-                //creating editor to store values of shared preferences
-                editor = sharedPreferences.edit();
-
-                // Clearing all data from Shared Preferences
-                editor.clear();
-
-                //Saving the sharedpreferences
-                editor.commit();
-
-                LocalBroadcastManager.getInstance(getBaseContext()).unregisterReceiver(mRegistrationBroadcastReceiver);
-
-                sharedPreferences = getSharedPreferences(MY_PREFERENCES, MainActivity.MODE_PRIVATE);
-                previoussharedPreferences = getSharedPreferences(Previous_PREFERENCES, MainActivity.MODE_PRIVATE);
-
-                //creating editor to store values of shared preferences
-                editor = sharedPreferences.edit();
-                previouseditor = previoussharedPreferences.edit();
-
-                editor.putString(loginconfig.key_gcmtokenid, "");
-                editor.apply();
-
-                InstanceID instanceID = InstanceID.getInstance(getApplicationContext());
-                try {
-                    instanceID.deleteInstanceID();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                ongcmregistrationsuccess();
-
-                Intent i = new Intent(Teacher_Dashboard_Activity.this, LoginActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                finish();*/
-
             }
         });
 
@@ -444,7 +398,8 @@ public class Teacher_Dashboard_Activity extends AppCompatActivity implements Tab
     }
 
     private void getnotificationcount() {
-        userid = MainActivity.sharedPreferences.getString(loginconfig.key_userid, "");
+        sharedPreferences = getSharedPreferences(MY_PREFERENCES, MainActivity.MODE_PRIVATE);
+        userid = sharedPreferences.getString(loginconfig.key_userid, "");
 
         StringRequest studentrequest1 = new StringRequest(Request.Method.POST, loginconfig.key_user_notificationcount_url,
                 new Response.Listener<String>() {
@@ -1138,16 +1093,6 @@ public class Teacher_Dashboard_Activity extends AppCompatActivity implements Tab
 
                     }
 
-                    /*if(value==true){
-                        Teacher_Attendance_Main_Activity innerFragment = new Teacher_Attendance_Main_Activity ().newInstance("Teacher Attendance");
-                        FragmentManager fragmentManager = getSupportFragmentManager();
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.add(R.id.attendancepagemaincontainer, innerFragment);
-                        fragmentTransaction.addToBackStack("new");
-                        fragmentTransaction.commit();
-                    }else{
-                        super.onBackPressed();
-                    }*/
                 }else if(tabLayout.getSelectedTabPosition()==2) {
 
                     value = RecentAssignmentListViewAdapter.getclicked();

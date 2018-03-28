@@ -42,7 +42,7 @@ public class teacherattendancetabpageadapter extends FragmentPagerAdapter {
                 result = new Teachers_Dashboard().newInstance("Teachers_Dashboard");
                 break;
             case 1:
-                result = new Teacher_Attendance_Main_Activity().newInstance("Attendance");
+                result = new Teacher_Attendance_Main_Activity();
                 break;
             case 2:
                 result = new Teacher_Assignments_Main_Activity().newInstance("Assignments");

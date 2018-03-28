@@ -34,6 +34,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 
@@ -41,6 +42,7 @@ import uk.co.yellowrays.collegeinfo.classcubby.AppStatus;
 import uk.co.yellowrays.collegeinfo.classcubby.MainActivity;
 import uk.co.yellowrays.collegeinfo.classcubby.R;
 import uk.co.yellowrays.collegeinfo.classcubby.Teacher_Dashboard_Activity;
+import uk.co.yellowrays.collegeinfo.classcubby.TeachersAdapter.userinformation.UserInformationList;
 import uk.co.yellowrays.collegeinfo.classcubby.configfiles.loginconfig;
 
 /**
@@ -72,13 +74,14 @@ public class NotificationsMainAdapter extends BaseAdapter {
     public static SharedPreferences sharedPreferences;
     public static SharedPreferences.Editor editor;
     private JSONArray loginresult;
+    private List<NotificationList> notificationlist;
 
 
 
     public NotificationsMainAdapter(Context context, String[] strnotificationid,
                                     String[] strnotificationmsg, String[] strnotificationtype, String[] strpostedbyname,
                                     String[] strpostedbyimage, String[] strnotificationpostedtime, String[] strnotificationreaddate,
-                                    Timer timer, Boolean timerval) {
+                                    Timer timer, Boolean timerval, List<NotificationList> notlist) {
         this.context = context;
         this.notificationid = strnotificationid;
         this.notificationmsg = strnotificationmsg;
@@ -89,13 +92,14 @@ public class NotificationsMainAdapter extends BaseAdapter {
         this.notificationreaddate = strnotificationreaddate;
         this.t = timer;
         this.timervalue = timerval;
+        this.notificationlist = notlist;
         inflater = LayoutInflater.from(context.getApplicationContext());
 
     }
 
     @Override
     public int getCount() {
-        return notificationid.length;
+        return notificationlist.size();
     }
 
     @Override
@@ -140,8 +144,8 @@ public class NotificationsMainAdapter extends BaseAdapter {
         holder.countvalue.setTypeface(semiboldtypeface);
 
 
-        holder.studentname.setText(notificationmsg[position]);
-        holder.countvalue.setText(notificationpostedtime[position]);
+        holder.studentname.setText(notificationlist.get(position).getnotificationmsg());
+        holder.countvalue.setText(notificationlist.get(position).getnotificationpostedtime());
 
         holder.notificationid.setText(notificationid[position]);
 
@@ -168,7 +172,7 @@ public class NotificationsMainAdapter extends BaseAdapter {
             holder.imageview.setTag("Outgoing Request");
         }
 
-        Glide.with(context).load(postedbyimage[position]).listener(new RequestListener<String, GlideDrawable>() {
+        Glide.with(context).load(notificationlist.get(position).getpostedbyimage()).listener(new RequestListener<String, GlideDrawable>() {
             @Override
             public boolean onException(Exception e, String s, Target<GlideDrawable> target, boolean b) {
                 Log.i("GLIDE", "onException :", e);

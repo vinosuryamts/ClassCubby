@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -38,6 +39,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import uk.co.yellowrays.collegeinfo.classcubby.AppStatus;
+import uk.co.yellowrays.collegeinfo.classcubby.LoginActivity;
 import uk.co.yellowrays.collegeinfo.classcubby.MainActivity;
 import uk.co.yellowrays.collegeinfo.classcubby.R;
 import uk.co.yellowrays.collegeinfo.classcubby.configfiles.loginconfig;
@@ -125,8 +127,7 @@ public class Parents_Outgoing_main extends android.support.v4.app.Fragment {
             oldposition = 0;
             getLeavevalues();
         }else {
-            snackbar = Snackbar.make(mainview,"Please Connect to the Internet and Try Again",Snackbar.LENGTH_LONG);
-            snackbar.show();
+            Toast.makeText(getActivity(),"Please Connect to the Internet and Try Again",Toast.LENGTH_LONG).show();
         }
 
         t = new Timer();
@@ -665,8 +666,7 @@ public class Parents_Outgoing_main extends android.support.v4.app.Fragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                snackbar = Snackbar.make(mainview, "Unable Connect to Internet. Please Try Again", Snackbar.LENGTH_LONG);
-                snackbar.show();
+                Toast.makeText(getActivity(),"Unable to connect to internet please try again later", Toast.LENGTH_LONG).show();
                 volleyError.printStackTrace();
             }
         })

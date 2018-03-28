@@ -14,6 +14,7 @@ import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -115,8 +116,7 @@ public class Parents_Assignment_Main_Activity extends android.support.v4.app.Fra
         if (AppStatus.getInstance(getActivity().getApplicationContext()).isOnline()) {
             getassignments();
         }else {
-            snackbar = Snackbar.make(mainview,"Please Connect to the Internet and Try Again",Snackbar.LENGTH_LONG);
-            snackbar.show();
+            Toast.makeText(getActivity(),"Please Connect to the Internet and Try Again",Toast.LENGTH_LONG).show();
         }
 
         t = new Timer();
@@ -300,7 +300,7 @@ public class Parents_Assignment_Main_Activity extends android.support.v4.app.Fra
                             loginDialog = new ProgressDialog(getActivity());
                             loginDialog.setIndeterminate(true);
                             loginDialog.setTitle("Please Wait");
-                            loginDialog.setMessage("Loading Events...");
+                            loginDialog.setMessage("Loading Assignments...");
                             loginDialog.show();
                             loginDialog.setCancelable(false);
                             loginDialog.setCanceledOnTouchOutside(false);

@@ -39,6 +39,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -75,6 +76,8 @@ public class Teachers_Userinformation_View extends AppCompatActivity {
     Timer t;
     boolean timervalue;
 
+
+    List<UserInformationList> arraylist = new ArrayList<UserInformationList>();
     int notificount = 0;
     int eventcount=0,oldposition=0,loadingstate=0,newclickevent=0;
     String userid;
@@ -385,7 +388,18 @@ public class Teachers_Userinformation_View extends AppCompatActivity {
                                     }
                                 }
 
-                                mAdapter = new CustomAdapter(Teachers_Userinformation_View.this,dataSet,dataSetTypes);
+                                for (int y = 0; y < arrfirstname.size(); y++)
+                                {
+                                    UserInformationList wp = new UserInformationList(arrsalutation.get(y),arrfirstname.get(y),
+                                            arrlastname.get(y),arrgender.get(y),arraddressline1.get(y),arraddressline2.get(y),
+                                            arruserimage.get(y),arrcityname.get(y),arrpincode.get(y),arrcontactnumber.get(y),
+                                            arraltcontactnumber.get(y),arremailid.get(y),"",arrdob.get(y));
+                                    // Binds all strings into an array
+                                    arraylist.add(wp);
+                                }
+
+
+                                mAdapter = new CustomAdapter(Teachers_Userinformation_View.this,dataSet,dataSetTypes,arraylist);
                                 mRecyclerView.setAdapter(mAdapter);
 
 

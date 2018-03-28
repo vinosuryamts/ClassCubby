@@ -33,6 +33,7 @@
                         android:layout_height="120dp"
                         app:layout_widthPercent="30%"
                         android:paddingTop="90dp"
+                        android:layout_marginLeft="15dp"
                         android:gravity="center">
 
                         <RelativeLayout

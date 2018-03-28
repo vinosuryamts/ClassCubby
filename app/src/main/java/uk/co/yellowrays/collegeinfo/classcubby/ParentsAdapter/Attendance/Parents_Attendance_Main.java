@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -212,8 +213,7 @@ public class Parents_Attendance_Main extends android.support.v4.app.Fragment {
                 }
             });
         } else {
-            snackbar = Snackbar.make(mainview, "Please Connect to the Internet and Try Again", Snackbar.LENGTH_LONG);
-            snackbar.show();
+            Toast.makeText(getActivity(),"Please Connect to the Internet and Try Again",Toast.LENGTH_LONG).show();
         }
 
         return view;
@@ -447,7 +447,9 @@ public class Parents_Attendance_Main extends android.support.v4.app.Fragment {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
                     mCustomProgressBar1.setProgress((int)progresstext);
-                    if((int)progresstext<85){
+                    if((int)progresstext<=1){
+
+                    }else if((int)progresstext>1 && (int)progresstext<85){
                         mCustomProgressBar1.setProgressStartColor(getActivity().getResources().getColor(R.color.absent));
                         mCustomProgressBar1.setProgressEndColor(getActivity().getResources().getColor(R.color.absent));
                         mCustomProgressBar1.setProgressTextColor(getActivity().getResources().getColor(R.color.absent));
@@ -468,7 +470,9 @@ public class Parents_Attendance_Main extends android.support.v4.app.Fragment {
             animator7.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 public void onAnimationUpdate(ValueAnimator animation) {
                     mCustomProgressBar1.setProgress((int)progresstext);
-                    if((int)progresstext<85) {
+                    if((int)progresstext<=1) {
+
+                    }else if((int)progresstext>1 && (int)progresstext<85) {
                         mCustomProgressBar1.setProgressStartColor(getActivity().getResources().getColor(R.color.absent));
                         mCustomProgressBar1.setProgressEndColor(getActivity().getResources().getColor(R.color.absent));
                         mCustomProgressBar1.setProgressTextColor(getActivity().getResources().getColor(R.color.absent));

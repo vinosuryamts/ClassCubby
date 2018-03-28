@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -125,8 +126,7 @@ public class Parents_Leavetracker_main extends android.support.v4.app.Fragment {
             oldposition = 0;
             getLeavevalues();
         }else {
-            snackbar = Snackbar.make(mainview,"Please Connect to the Internet and Try Again",Snackbar.LENGTH_LONG);
-            snackbar.show();
+            Toast.makeText(getActivity(),"Please Connect to the Internet and Try Again",Toast.LENGTH_LONG).show();
         }
 
         t = new Timer();

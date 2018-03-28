@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import uk.co.yellowrays.collegeinfo.classcubby.AppStatus;
 import uk.co.yellowrays.collegeinfo.classcubby.MainActivity;
@@ -83,8 +84,7 @@ public class Parents_Dashboard extends android.support.v4.app.Fragment {
                 gv.setAdapter(new Dashboardgridviewapdapter(getActivity(), prgmNameList, prgmImages));
             }
         }else{
-            snackbar = Snackbar.make(mainview,"Please Connect to the Internet and Try Again",Snackbar.LENGTH_LONG);
-            snackbar.show();
+            Toast.makeText(getActivity(),"Please Connect to the Internet and Try Again",Toast.LENGTH_LONG).show();
         }
 
         return view;

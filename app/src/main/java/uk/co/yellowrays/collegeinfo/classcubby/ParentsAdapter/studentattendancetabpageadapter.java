@@ -18,6 +18,7 @@ import uk.co.yellowrays.collegeinfo.classcubby.TeachersAdapter.Events.Events_Mai
 public class studentattendancetabpageadapter extends FragmentPagerAdapter {
 
     int tabCount;
+    private boolean _hasLoadedOnce= false;
 
     //Constructor to the class
     public studentattendancetabpageadapter(FragmentManager fm, int tabCount) {
@@ -41,9 +42,10 @@ public class studentattendancetabpageadapter extends FragmentPagerAdapter {
         switch (position) {
             case 0:
                 result = new Parents_Dashboard().newInstance("Parents_Dashboard");
+                _hasLoadedOnce = true;
                 break;
             case 1:
-                result = new Parents_Attendance_Main().newInstance("Parents_Attendance");
+                result = new Parents_Attendance_Main();
                 break;
             case 2:
                 result = new Parents_Assignment_Main_Activity().newInstance("Parents_Assignments");
@@ -55,7 +57,7 @@ public class studentattendancetabpageadapter extends FragmentPagerAdapter {
                 result = new Events_Main_Activity().newInstance("Events");
                 break;
             case 5:
-                result = new Parents_Outgoing_main().newInstance("Events");
+                result = new Parents_Outgoing_main().newInstance("Outgoing");
                 break;
             default:
                 result = null;

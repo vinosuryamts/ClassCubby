@@ -14,6 +14,7 @@ import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -123,8 +124,7 @@ public class Events_Main_Activity extends android.support.v4.app.Fragment {
         if (AppStatus.getInstance(getActivity().getApplicationContext()).isOnline()) {
             getevents();
         }else {
-            snackbar = Snackbar.make(mainview,"Please Connect to the Internet and Try Again",Snackbar.LENGTH_LONG);
-            snackbar.show();
+            Toast.makeText(getActivity(),"Please Connect to the Internet and Try Again",Toast.LENGTH_LONG).show();
         }
 
         t = new Timer();
@@ -150,9 +150,10 @@ public class Events_Main_Activity extends android.support.v4.app.Fragment {
 
     private void geteventsupdatecount() {
         //deleteCache(getActivity().getApplicationContext());
-        userid = MainActivity.sharedPreferences.getString(loginconfig.key_userid, "");
+        sharedPreferences = getActivity().getApplicationContext().getSharedPreferences(MY_PREFERENCES, MainActivity.MODE_PRIVATE);
+        userid = sharedPreferences.getString(loginconfig.key_userid, "");
 
-        StringRequest studentrequest2 = new StringRequest(Request.Method.POST, loginconfig.key_parentseventsupdatecheck_url,
+        StringRequest teachereventcount = new StringRequest(Request.Method.POST, loginconfig.key_parentseventsupdatecheck_url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
@@ -229,8 +230,8 @@ public class Events_Main_Activity extends android.support.v4.app.Fragment {
                 return params;
             }
         };
-        RequestQueue studentlist1 = Volley.newRequestQueue(getActivity());
-        studentlist1.add(studentrequest2);
+        RequestQueue eventcountvolley = Volley.newRequestQueue(getActivity().getApplicationContext());
+        eventcountvolley.add(teachereventcount);
     }
 
     private boolean listIsAtTop()   {
@@ -470,8 +471,7 @@ public class Events_Main_Activity extends android.support.v4.app.Fragment {
                     loadingstate = 0;
                     loginDialog.dismiss();
                 }
-                snackbar = Snackbar.make(mainview, "Unable Connect to Internet. Please Try Again", Snackbar.LENGTH_LONG);
-                snackbar.show();
+                Toast.makeText(getActivity(), "Unable Connect to Internet. Please Try Again", Toast.LENGTH_LONG).show();
                 volleyError.printStackTrace();
             }
         })

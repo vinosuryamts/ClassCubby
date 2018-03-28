@@ -40,6 +40,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -50,6 +51,7 @@ import uk.co.yellowrays.collegeinfo.classcubby.R;
 import uk.co.yellowrays.collegeinfo.classcubby.Teacher_Dashboard_Activity;
 import uk.co.yellowrays.collegeinfo.classcubby.TeachersAdapter.userinformation.Parents_Userinformation_View;
 import uk.co.yellowrays.collegeinfo.classcubby.TeachersAdapter.userinformation.Teachers_Userinformation_View;
+import uk.co.yellowrays.collegeinfo.classcubby.TeachersAdapter.userinformation.UserInformationList;
 import uk.co.yellowrays.collegeinfo.classcubby.configfiles.loginconfig;
 import uk.co.yellowrays.collegeinfo.classcubby.configfiles.previousloginconfig;
 
@@ -72,6 +74,7 @@ public class Notifications_View extends AppCompatActivity {
     private NotificationsMainAdapter adapter;
     ProgressDialog loginDialog;
 
+    List<NotificationList> arraylist = new ArrayList<NotificationList>();
     int notificount = 0;
     int eventcount=0,oldposition=0,loadingstate=0,newclickevent=0;
     String userid;
@@ -188,42 +191,6 @@ public class Notifications_View extends AppCompatActivity {
                 }
 
 
-                /*sharedPreferences = getSharedPreferences(MY_PREFERENCES, MainActivity.MODE_PRIVATE);
-
-                //creating editor to store values of shared preferences
-                editor = sharedPreferences.edit();
-
-                // Clearing all data from Shared Preferences
-                editor.clear();
-
-                //Saving the sharedpreferences
-                editor.commit();
-
-                LocalBroadcastManager.getInstance(getBaseContext()).unregisterReceiver(mRegistrationBroadcastReceiver);
-
-                sharedPreferences = getSharedPreferences(MY_PREFERENCES, MainActivity.MODE_PRIVATE);
-                previoussharedPreferences = getSharedPreferences(Previous_PREFERENCES, MainActivity.MODE_PRIVATE);
-
-                //creating editor to store values of shared preferences
-                editor = sharedPreferences.edit();
-                previouseditor = previoussharedPreferences.edit();
-
-                editor.putString(loginconfig.key_gcmtokenid, "");
-                editor.apply();
-
-                InstanceID instanceID = InstanceID.getInstance(getApplicationContext());
-                try {
-                    instanceID.deleteInstanceID();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                ongcmregistrationsuccess();
-
-                Intent i = new Intent(Teacher_Dashboard_Activity.this, LoginActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                finish();*/
 
             }
         });
@@ -377,7 +344,19 @@ public class Notifications_View extends AppCompatActivity {
                                 eventcount = strnotificationid.length;
                                 mainview.setEnabled(true);
 
-                                adapter = new NotificationsMainAdapter(Notifications_View.this,strnotificationid,strnotificationmsg,strnotificationtype,strpostedbyname,strpostedbyimage,strnotificationpostedtime,strnotificationreaddate,t,timervalue);
+
+                                for (int y = 0; y < arrnotificationid.size(); y++)
+                                {
+                                    NotificationList wp = new NotificationList(arrnotificationid.get(y),arrnotificationmsg.get(y)
+                                            , arrnotificationtype.get(y),arrpostedbyname.get(y),arrpostedbyimage.get(y),
+                                            arrnotificationpostedtime.get(y),
+                                            arrnotificationreaddate.get(y));
+                                    // Binds all strings into an array
+                                    arraylist.add(wp);
+                                }
+
+
+                                adapter = new NotificationsMainAdapter(Notifications_View.this,strnotificationid,strnotificationmsg,strnotificationtype,strpostedbyname,strpostedbyimage,strnotificationpostedtime,strnotificationreaddate,t,timervalue, arraylist);
                                 notificationlistview.setAdapter(adapter);
                                 notificationlistview.setScrollingCacheEnabled(false);
 

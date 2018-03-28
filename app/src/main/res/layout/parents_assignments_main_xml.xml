@@ -36,7 +36,7 @@
             android:id="@+id/emptycriteriamsg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="No Events"
+            android:text="No Assignments"
             android:layout_below="@+id/dashboardpagename"
             android:textColor="@color/grey"
             android:background="@color/white"
