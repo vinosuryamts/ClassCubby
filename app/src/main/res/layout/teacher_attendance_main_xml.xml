@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/attendancepagemaincontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/attendancepagename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="Recent Attendance"
+            android:textColor="@color/colorAccent"
+            android:textSize="12dp" />
+
+        <ListView
+            android:id="@+id/attendancelistview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/attendancepagename"
+            android:background="@color/white"
+            android:divider="@color/lightwhite"
+            android:dividerHeight="1dp"
+            android:saveEnabled="true"
+            android:scrollingCache="false" />
+
+        <GridView
+            android:id="@+id/attendancegridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/attendancepagename"
+            android:background="@color/lightwhite"
+            android:horizontalSpacing="1dp"
+            android:numColumns="2"
+            android:verticalSpacing="1dp"
+            android:visibility="invisible"></GridView>
+
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:text="No attendance have been taken recently. Click on filter icon below and start taking attendance."
+            android:textColor="@color/colorAccent"
+            android:textSize="12dp"
+            android:visibility="invisible" />
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/newrecentcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/attendancepagename"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/newrecenttext"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:background="@drawable/floatingbutton"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/innerfilterlayout"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:visibility="invisible">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/classspinnercontainer"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp">
+
+                <Spinner
+                    android:id="@+id/classspinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/spinxml"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:spinnerMode="dialog"
+                    app:layout_widthPercent="100%"></Spinner>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/classspinner"
+                    android:layout_gravity="center"
+                    android:src="@drawable/spin" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/dateboxcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/classspinnercontainer"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp">
+
+                <TextView
+                    android:id="@+id/datetext"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/spinxml"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:ems="7"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12dp"
+                    android:textStyle="normal">
+
+                    <requestFocus />
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/calendarimage"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/datetext"
+                    android:contentDescription="et"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:src="@drawable/calendarwhite" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/subjectspinnercontainer"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/dateboxcontainer"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp">
+
+                <Spinner
+                    android:id="@+id/hourspinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/spinxml"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:spinnerMode="dialog"
+                    app:layout_widthPercent="100%"></Spinner>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/hourspinner"
+                    android:layout_gravity="center"
+                    android:src="@drawable/spin" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/generatecontainer"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/subjectspinnercontainer"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp">
+
+                <Button
+                    android:id="@+id/generatestudentslist"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/activateemailbutton"
+                    android:text="Generate"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/submitcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp">
+
+            <Button
+                android:id="@+id/submitstudentslist"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:background="@drawable/enabledsigninbutton"
+                android:text="Submit"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        app:backgroundTint="@color/blue"
+        android:src="@drawable/filterwhite"/>
+
+</android.support.percent.PercentRelativeLayout>

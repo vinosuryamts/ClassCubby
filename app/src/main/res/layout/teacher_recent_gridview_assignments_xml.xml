@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/recentassignmentsoverallcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/white">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/colorindicatorelayout"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/departmentnamecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:id="@+id/departmentcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/departmentname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:textSize="11dp"/>
+
+            </RelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <TextView
+            android:id="@+id/dectexthidden"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_below="@+id/departmentnamecontainer"/>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/hournamecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/departmentnamecontainer">
+
+            <TextView
+                android:id="@+id/hourname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:textSize="11dp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/takendatecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/hournamecontainer">
+
+            <TextView
+                android:id="@+id/takendate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:textSize="11dp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/pathnamecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:visibility="invisible"
+            android:layout_below="@+id/hournamecontainer">
+
+            <TextView
+                android:id="@+id/pathname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="03-10-2017"
+                android:visibility="invisible"
+                android:textSize="11dp"/>
+            <TextView
+                android:id="@+id/filename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="03-10-2017"
+                android:visibility="invisible"
+                android:textSize="11dp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/targetdatecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/takendatecontainer">
+
+            <TextView
+                android:id="@+id/targetdatename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="Target Date :"
+                android:textSize="11dp"/>
+
+            <TextView
+                android:id="@+id/targetdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:layout_toRightOf="@+id/targetdatename"
+                android:textSize="11dp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/assignmenttitlecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/targetdatecontainer">
+
+            <TextView
+                android:id="@+id/assignmenttitlename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="Title              :"
+                android:textSize="11dp"/>
+
+            <TextView
+                android:id="@+id/assignmenttitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:layout_toRightOf="@+id/assignmenttitlename"
+                android:maxLength="50"
+                android:textSize="11dp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/assignmentdesccontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/assignmenttitlecontainer">
+
+            <TextView
+                android:id="@+id/assignmentdescname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="Description   :"
+                android:textSize="11dp"/>
+
+            <TextView
+                android:id="@+id/assignmentdesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:layout_toRightOf="@+id/assignmentdescname"
+                android:maxLength="50"
+                android:textSize="11dp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>

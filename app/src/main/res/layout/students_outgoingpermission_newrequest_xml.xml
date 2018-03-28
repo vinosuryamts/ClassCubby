@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/assignmentrowwholecontainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/mscroll"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/cardcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/leavetrackertoolbar"
+            android:background="@color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:id="@+id/leavepagename"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Permission Request"
+                android:textSize="11dp"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                android:textColor="@color/colorAccent"/>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/fromdatetextboxcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                android:layout_below="@+id/leavepagename">
+
+                <TextView
+                    android:id="@+id/fromdatetextvalue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="45%"
+                    android:text="From Date"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"></TextView>
+
+                <TextView
+                    android:id="@+id/fromhouttextvalue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="45%"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/fromdatetextvalue"
+                    android:text="Time From"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"></TextView>
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/filterspinnervaluescontainer"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/fromdatetextboxcontainer"
+                android:gravity="center_vertical"
+                android:background="@color/white">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/fromdateboxcontainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_widthPercent="45%"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/fromdatetext"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/spinxml"
+                        android:textSize="11dp"
+                        android:ems="7"
+                        android:textColor="@color/grey"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false">
+                        <requestFocus/>
+                    </TextView>
+
+                    <ImageView
+                        android:id="@+id/fromcalendarimage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/calendarnew"
+                        android:contentDescription="et"
+                        android:layout_alignTop="@+id/fromdatetext"
+                        android:layout_alignParentRight="true" />
+
+                </android.support.percent.PercentRelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/classspinnercontainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_widthPercent="45%"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/fromdateboxcontainer"
+                    android:gravity="center"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/fromhourspinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        app:layout_widthPercent="100%"
+                        android:background="@drawable/spinxml"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:spinnerMode="dialog">
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/spin"
+                        android:layout_alignTop="@+id/classspinner"
+                        android:layout_alignParentRight="true"/>
+
+                </android.support.percent.PercentRelativeLayout>
+
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/todatetextboxcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/filterspinnervaluescontainer"
+                android:gravity="center_vertical"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/todatetextvalue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="45%"
+                    android:text="To Date"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"></TextView>
+
+                <TextView
+                    android:id="@+id/tohouttextvalue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="45%"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/todatetextvalue"
+                    android:text="Time To"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"></TextView>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/secondrowfiltercontainer"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/todatetextboxcontainer"
+                android:gravity="center_vertical"
+                android:background="@color/white">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/todateboxcontainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_widthPercent="45%"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/todatetext"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/spinxml"
+                        android:textSize="11dp"
+                        android:ems="7"
+                        android:textColor="@color/grey"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false">
+                        <requestFocus/>
+                    </TextView>
+
+                    <ImageView
+                        android:id="@+id/tocalendarimage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/calendarnew"
+                        android:contentDescription="et"
+                        android:layout_alignTop="@+id/datetext"
+                        android:layout_alignParentRight="true" />
+
+                </android.support.percent.PercentRelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/tohourspinnercontainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_widthPercent="45%"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/todateboxcontainer"
+                    android:gravity="center"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/tohourspinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        app:layout_widthPercent="100%"
+                        android:background="@drawable/spinxml"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:spinnerMode="dialog">
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/spin"
+                        android:layout_alignTop="@+id/classspinner"
+                        android:layout_alignParentRight="true"/>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/leavesubjectvalue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:theme="@style/TextLabelwhitebackground"
+                android:layout_below="@+id/secondrowfiltercontainer">
+
+                <EditText
+                    android:id="@+id/subjecttextvalue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textColor="@color/colorAccent"
+                    android:inputType="textMultiLine"
+                    android:maxLength="50"
+                    android:textSize="11dp"
+                    android:hint="Permission Title"
+                    android:textColorHint="@color/colorAccent"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/leavedetailvalue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:theme="@style/TextLabelwhitebackground"
+                android:layout_below="@+id/leavesubjectvalue">
+
+                <EditText
+                    android:id="@+id/leavedetailtextvalue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:inputType="textMultiLine"
+                    android:maxLength="1000"
+                    android:textSize="11dp"
+                    android:hint="Permission Reason"
+                    android:gravity="bottom"
+                    android:paddingBottom="10dp"
+                    android:textColorHint="@color/colorAccent"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/submitcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="Submit"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            android:background="@drawable/enabledsigninbutton"/>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>

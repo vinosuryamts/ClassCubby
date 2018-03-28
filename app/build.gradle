@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    signingConfigs {
+        config {
+            storeFile file('F:/keystores/classcubby.jks')
+            keyAlias 'classcubbykey'
+            keyPassword 'classcubby2016'
+            storePassword 'classcubby2016'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion '26.0.2'
+    flavorDimensions "mode"
+    defaultConfig {
+        applicationId "uk.co.yellowrays.collegeinfo.classcubby"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 6
+        versionName "1.8.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        signingConfig signingConfigs.config
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+    productFlavors {
+        free {
+            dimension "mode"
+            signingConfig signingConfigs.config
+            minSdkVersion 21
+            applicationId 'uk.co.yellowrays.collegeinfo.classcubby'
+            targetSdkVersion 23
+            testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+            versionCode 6
+            versionName '1.8.2'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:support-v4:23.0.0'
+    compile 'com.android.support:design:23.3.0'
+    compile 'com.android.support:cardview-v7:23.3.0'
+    compile 'com.android.support:recyclerview-v7:23.3.0'
+    compile 'com.android.support:support-annotations:23.3.0'
+    compile 'de.hdodenhof:circleimageview:1.2.+'
+    compile 'com.etsy.android.grid:library:1.0.5'
+    compile 'com.android.support:percent:23.3.0'
+    compile 'com.mikhaellopez:circularprogressbar:1.1.1'
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+    compile 'com.snatik:storage:2.1.0'
+    compile 'com.wang.avi:library:2.1.3'
+    compile 'com.google.android.gms:play-services-gcm:8.3.0'
+    compile 'com.google.android.gms:play-services-fitness:8.3.0'
+    compile 'com.google.android.gms:play-services-wearable:8.3.0'
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.dinuscxj:circleprogressbar:1.1.1'
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'io.reactivex:rxjava:1.0.16'
+    testCompile 'junit:junit:4.12'
+    compile project(':glide-3.4.0')
+    compile project(':json-simple-1.1')
+    compile project(':volley')
+    compile files('libs/gcm.jar')
+
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/teachersdashboardcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/dashboardpagename"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Menu"
+            android:textSize="12dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:background="@color/white"
+            android:textColor="@color/colorAccent"/>
+
+        <GridView
+            android:id="@+id/dashboardgridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:saveEnabled="true"
+            android:dividerHeight="1dp"
+            android:divider="@color/lightwhite"
+            android:scrollingCache="false"
+            android:layout_below="@+id/dashboardpagename">
+        </GridView>
+
+    </RelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>

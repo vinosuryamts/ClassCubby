@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="100dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="1dp"
+    app:cardBackgroundColor="@color/white">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/eventsfirstrowcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:paddingTop="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/posterimage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="18dp"/>
+
+        <TextView
+            android:id="@+id/postedtime"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/posterimage"
+            android:textSize="10dp"
+            android:textColor="@color/lightgrey"
+            android:gravity="right|center_vertical">
+        </TextView>
+
+        <TextView
+            android:id="@+id/schoolname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/posterimage"
+            android:layout_below="@+id/postedtime"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/grey">
+        </TextView>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/postedbyholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/posterimage"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/schoolname">
+
+            <TextView
+                android:id="@+id/postedbytext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="posted by"
+                android:textColor="@color/grey"
+                android:textSize="12dp"
+                android:paddingLeft="10dp"></TextView>
+            <TextView
+                android:id="@+id/postedby"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/postedbytext"
+                android:paddingLeft="5dp"
+                android:textSize="12dp"
+                android:textColor="@color/lightgrey"></TextView>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/eventdetailscontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/posterimage"
+            android:layout_marginTop="10dp">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/eventtitleholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_widthPercent="48%">
+
+                <TextView
+                    android:id="@+id/eventdatetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Event Date"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:textSize="12dp"
+                    android:paddingLeft="10dp"></TextView>
+                <TextView
+                    android:id="@+id/eventdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/eventdatetext"
+                    android:paddingLeft="10dp"
+                    android:textSize="12dp"
+                    android:textColor="@color/lightgrey"></TextView>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/eventforholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_widthPercent="48%"
+                android:layout_toRightOf="@+id/eventtitleholder">
+
+                <TextView
+                    android:id="@+id/eventfortext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Event For  "
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:textSize="12dp"
+                    android:paddingLeft="10dp"></TextView>
+                <TextView
+                    android:id="@+id/eventfor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/eventfortext"
+                    android:paddingLeft="10dp"
+                    android:textSize="12dp"
+                    android:textColor="@color/lightgrey"></TextView>
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/eventtitleholdervalue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/eventdetailscontainer">
+
+            <TextView
+                android:id="@+id/eventtitletext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Event Title       "
+                android:textColor="@color/grey"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:paddingLeft="10dp"></TextView>
+            <TextView
+                android:id="@+id/eventtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/eventtitletext"
+                android:paddingLeft="10dp"
+                android:textSize="12dp"
+                android:textColor="@color/lightgrey"></TextView>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/eventdescholdervalue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/eventtitleholdervalue">
+
+            <TextView
+                android:id="@+id/evendescriptiontext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Event Description       "
+                android:textColor="@color/grey"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:paddingLeft="10dp"></TextView>
+            <TextView
+                android:id="@+id/evendescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/evendescriptiontext"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:lineSpacingExtra="5dp"
+                android:textSize="12dp"
+                android:textColor="@color/lightgrey"></TextView>
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.v7.widget.CardView>

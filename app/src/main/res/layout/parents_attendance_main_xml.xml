@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/overallcontainerreport"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/firstmaincontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/cardcontainer"
+                android:layout_width="wrap_content"
+                android:layout_height="180dp"
+                app:layout_widthPercent="50%"
+                android:layout_margin="5dp"
+                android:background="@android:color/transparent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/attendancepercentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Attendance Percentage"
+                    android:textSize="11dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/custom_progress1"
+                    android:gravity="center"/>
+
+                <com.dinuscxj.progressbar.CircleProgressBar
+                    android:id="@+id/custom_progress1"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="8dp"
+                    app:style="solid_line"
+                    app:progress_stroke_width="8dp"
+                    app:line_width="8dp"
+                    app:line_count="30"
+                    app:progress_stroke_cap="round"
+                    app:progress_shader="sweep"
+                    app:progress_text_size="25dp"
+                    app:progress_background_color="@color/lightgrey"
+                    app:progress_text_color="@color/colorAccent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/leavescontainer"
+                android:layout_width="wrap_content"
+                android:layout_height="185dp"
+                app:layout_widthPercent="50%"
+                android:layout_toRightOf="@+id/cardcontainer"
+                android:gravity="center">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/remainingleavescontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_heightPercent="47%"
+                    android:gravity="center"
+                    android:background="@android:color/transparent"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:id="@+id/remainingleaves"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/remainingleavestext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/remainingleaves"
+                        android:text="Remaining Leaves\nDay(s)"
+                        android:textSize="11dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </android.support.percent.PercentRelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/availableleavescontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/remainingleavescontainer"
+                    app:layout_heightPercent="50%"
+                    android:gravity="center"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp">
+
+                    <TextView
+                        android:id="@+id/availableleaves"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/availableleavestext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/availableleaves"
+                        android:text="Allowable Leaves\nDay(s)"
+                        android:textSize="11dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/secondmaincontainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/firstmaincontainer"
+            android:layout_marginTop="10dp">
+
+            <RelativeLayout
+                android:id="@+id/calendarcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bottomline">
+
+                <TextView
+                    android:id="@+id/datetext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="11dp"
+                    android:ems="7"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false">
+                    <requestFocus/>
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/calendarimage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/calendaredit"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="et"
+                    android:layout_alignTop="@+id/datetext"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/listviewcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/calendarcontainer"
+                android:background="@color/white"
+                android:layout_margin="10dp">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/titlecontainervalue"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <android.support.percent.PercentRelativeLayout
+                        android:id="@+id/firstrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:layout_widthPercent="50%"
+                        android:layout_gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/hourname"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Hour"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
+                            android:textSize="11dp"
+                            android:background="@drawable/bottomline"
+                            android:gravity="center"></TextView>
+                    </android.support.percent.PercentRelativeLayout>
+
+                    <android.support.percent.PercentRelativeLayout
+                        android:id="@+id/secondrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/firstrow"
+                        app:layout_widthPercent="50%"
+                        android:layout_gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/attendancevalue"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Attendance"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
+                            android:textSize="11dp"
+                            android:background="@drawable/bottomline"
+                            android:gravity="center"></TextView>
+                    </android.support.percent.PercentRelativeLayout>
+
+                </android.support.percent.PercentRelativeLayout>
+
+                <ListView
+                    android:id="@+id/attendancelist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titlecontainervalue"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:dividerHeight="1dp"
+                    android:divider="@color/lightwhite"
+                    android:background="@android:color/transparent">
+                </ListView>
+
+                <TextView
+                    android:id="@+id/emptycriteriamsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Attendance is not taken Yet for this day"
+                    android:layout_below="@+id/titlecontainervalue"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"
+                    android:visibility="invisible"/>
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>

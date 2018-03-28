@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="uk.co.yellowrays.collegeinfo.classcubby">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="uk.co.yellowrays.collegeinfo.classcubby.permission.C2D_MESSAGE"/>
+    <permission android:name="uk.co.yellowrays.collegeinfo.classcubby.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="uk.co.yellowrays.collegeinfo.classcubby.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="uk.co.yellowrays.collegeinfo.classcubby"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name="uk.co.yellowrays.collegeinfo.classcubby.Server.GCMPushReceiverService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
+        <service android:name="uk.co.yellowrays.collegeinfo.classcubby.Server.GCMRegistrationIntentService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+        <!--
+            GCM Receiver Service
+        -->
+
+        <!--
+            GCM Registration Intent Service
+        -->
+
+        <activity android:name="uk.co.yellowrays.collegeinfo.classcubby.LoginActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name="uk.co.yellowrays.collegeinfo.classcubby.Teacher_Dashboard_Activity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="file" />
+                <data android:mimeType="*/*" />
+                <data android:scheme="http" android:host="*" android:pathPattern=".*\\.pdf" />
+                <data android:scheme="https" android:host="*" android:pathPattern=".*\\.pdf" />
+                <data android:scheme="content" android:host="*" android:pathPattern=".*\\.pdf" />
+                <data android:scheme="file" android:host="*" android:pathPattern=".*\\.pdf" />
+                <data android:scheme="http" android:host="*" android:pathPattern=".*\\.ppt" />
+                <data android:scheme="https" android:host="*" android:pathPattern=".*\\.ppt" />
+                <data android:scheme="content" android:host="*" android:pathPattern=".*\\.ppt" />
+                <data android:scheme="file" android:host="*" android:pathPattern=".*\\.ppt" />
+                <data android:scheme="http" android:host="*" android:pathPattern=".*\\.xls" />
+                <data android:scheme="https" android:host="*" android:pathPattern=".*\\.xls" />
+                <data android:scheme="content" android:host="*" android:pathPattern=".*\\.xls" />
+                <data android:scheme="file" android:host="*" android:pathPattern=".*\\.xls" />
+                <data android:scheme="http" android:host="*" android:pathPattern=".*\\.doc" />
+                <data android:scheme="https" android:host="*" android:pathPattern=".*\\.doc" />
+                <data android:scheme="content" android:host="*" android:pathPattern=".*\\.doc" />
+                <data android:scheme="file" android:host="*" android:pathPattern=".*\\.doc" />
+
+                <data android:mimeType="image/*" android:scheme="http" android:host="*" />
+                <data android:mimeType="image/*" android:scheme="https" android:host="*" />
+                <data android:mimeType="image/*" android:scheme="content" android:host="*" />
+                <data android:mimeType="image/*" android:scheme="file" android:host="*" />
+            </intent-filter>
+        </activity>
+        <activity android:name="uk.co.yellowrays.collegeinfo.classcubby.Forgot_Password_Activity" android:screenOrientation="portrait"></activity>
+        <activity android:name="uk.co.yellowrays.collegeinfo.classcubby.TeachersAdapter.Notifications.Notifications_View" android:screenOrientation="portrait"></activity>
+        <activity android:name="uk.co.yellowrays.collegeinfo.classcubby.ChangePassword_View" android:label="Change Password" android:screenOrientation="portrait"></activity>
+        <activity android:name="uk.co.yellowrays.collegeinfo.classcubby.TeachersAdapter.userinformation.Teachers_Userinformation_View" android:label="Profile" android:screenOrientation="portrait"></activity>
+        <activity android:name="uk.co.yellowrays.collegeinfo.classcubby.TeachersAdapter.userinformation.Parents_Userinformation_View" android:label="Profile" android:screenOrientation="portrait"></activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@android:style/Widget.ActionButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/badge_layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_item_count"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/button1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="@string/notification"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:paddingTop="14dp"
+                android:textAlignment="center"
+                android:rotation="20"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:id="@+id/counttext"
+                android:layout_width="15dip"
+                android:layout_height="15dip"
+                android:background="@drawable/notificationcircle"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:textSize="9dp"
+                android:elevation="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignTop="@+id/button1"
+                android:layout_alignRight="@+id/button1"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

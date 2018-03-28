@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/parentsleavetrackerwholecontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/leavepagename"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Leave Request"
+            android:textSize="11dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:background="@color/white"
+            android:textColor="@color/colorAccent"/>
+
+        <ListView
+            android:id="@+id/mrecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:saveEnabled="true"
+            android:dividerHeight="1dp"
+            android:divider="@color/lightwhite"
+            android:scrollingCache="false"
+            android:layout_below="@+id/leavepagename"/>
+
+        <TextView
+            android:id="@+id/emptycriteriamsg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="11dp"
+            android:gravity="center"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:textColor="@color/colorAccent"
+            android:visibility="invisible"
+            android:layout_below="@+id/leavepagename"
+            android:text="No Leave Request has been Raised. In order to create click on filter button below" />
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/newrecentcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/attendancepagename"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/newrecenttext"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:textSize="11dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/floatingbutton"
+                android:visibility="invisible" />
+
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/neweventscontainer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_below="@+id/leavepagename">
+            <Button
+                android:id="@+id/newleavetrackerbutton"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                android:textAllCaps="false"
+                android:background="@drawable/floatingbutton"
+                android:visibility="invisible">
+            </Button>
+        </RelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            app:backgroundTint="@color/blue"
+            android:src="@android:drawable/ic_dialog_email"/>
+
+    </RelativeLayout>
+
+
+
+</android.support.percent.PercentRelativeLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splashactivitymain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/wholecontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/logocontainer"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/Logo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/splashlogo" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/appname"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/logocontainer"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/appnamevalue"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="18dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/loadingcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/AVLoadingIndicatorView"
+            android:visibility="visible"
+            app:indicatorName="BallPulseIndicator"
+            app:indicatorColor="@color/textColorPrimary" />
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+</RelativeLayout>

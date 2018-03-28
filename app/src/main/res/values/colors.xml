@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fafafa</color>
+    <color name="colorPrimaryDark">#fafafa</color>
+    <color name="colorAccent">#262626</color>
+    <color name="textColorPrimary">#262626</color>
+    <color name="lightblack">#434343</color>
+    <color name="lightblacktransparent">#50434343</color>
+    <color name="windowBackground">#ffffff</color>
+    <color name="newlightgrey">#5e5a5b</color>
+
+
+    <color name="lightdimtextcolor">#BDBDBD</color>
+    <color name="blue">#3897f0</color>
+    <color name="dimblue">#c3e0fa</color>
+    <color name="textcolor">#16265f</color>
+    <color name="white">#ffffff</color>
+    <color name="lightwhite">#F5F5F5</color>
+    <color name="lighterwhite">#f7f7f7</color>
+    <color name="lightgrey">#999999</color>
+    <color name="excusedabsent">#c22a4b</color>
+    <color name="absent">#f44336</color>
+    <color name="present">#64be39</color>
+    <color name="onduty">#ffc107</color>
+    <color name="orange">#FF9800</color>
+    <color name="lightgreennew">#E3F2FD</color>
+    <color name="lime">#00ACC1</color>
+    <color name="lighttextcolor">#999999</color>
+    <color name="grey">#3f3f3f</color>
+    <color name="Circlecolor">#F2FAFAFA</color>
+    <color name="userinfocolor">#018f99</color>
+    <color name="lightrose">#ee5f97</color>
+</resources>

@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardview1"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="1dp"
+        android:layout_below="@+id/cardview"
+        android:background="@color/white">
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/white"
+            app:cardCornerRadius="1dp">
+
+            <TextView
+                android:id="@+id/Personalinformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Primary Information"
+                android:textColor="@color/grey"
+                android:textSize="11dp"
+                android:textStyle="bold" />
+
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/firstnamecontainer"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/Personalinformation"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical">
+
+                <RelativeLayout
+                    android:id="@+id/firstnameimagecontainer"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/firstnameimage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/usericon"></ImageView>
+
+                </RelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/firstnamedetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/firstnameimagecontainer"
+                    android:background="@drawable/bottonlinebox">
+
+                    <TextView
+                        android:id="@+id/firstnametext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:text="First Name"
+                        android:textColor="@color/grey"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        app:layout_heightPercent="50%"></TextView>
+
+                    <TextView
+                        android:id="@+id/firstname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/firstnametext"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:textColor="@color/lightgrey"
+                        android:textSize="10dp"
+                        app:layout_heightPercent="50%"></TextView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/lastnamecontainer"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/firstnamecontainer"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical">
+
+                <RelativeLayout
+                    android:id="@+id/lastnameimagecontainer"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/lastnameimage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/usericon"></ImageView>
+
+                </RelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/lastnamedetailscontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/lastnameimagecontainer"
+                    android:background="@drawable/bottonlinebox">
+
+                    <TextView
+                        android:id="@+id/lastnametext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:text="Last Name"
+                        android:textColor="@color/grey"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        app:layout_heightPercent="50%"></TextView>
+
+                    <TextView
+                        android:id="@+id/lastname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lastnametext"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:textColor="@color/lightgrey"
+                        android:textSize="10dp"
+                        app:layout_heightPercent="50%"></TextView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/gendercontainer"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/lastnamecontainer"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical">
+
+                <RelativeLayout
+                    android:id="@+id/genderimagecontainer"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/genderimage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/usericon"></ImageView>
+
+                </RelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/genderdetailscontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/genderimagecontainer"
+                    android:background="@drawable/bottonlinebox">
+
+                    <TextView
+                        android:id="@+id/gendertext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:text="Gender"
+                        android:textColor="@color/grey"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        app:layout_heightPercent="50%"></TextView>
+
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/gendertext"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:textColor="@color/lightgrey"
+                        android:textSize="10dp"
+                        app:layout_heightPercent="50%"></TextView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/Addressline1container"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@+id/gendercontainer"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical">
+
+                <RelativeLayout
+                    android:id="@+id/Addressline1imagecontainer"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/Addressline1image"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/usericon"></ImageView>
+
+                </RelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/Addressline1detailscontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/Addressline1imagecontainer"
+                    android:background="@drawable/bottonlinebox">
+
+                    <TextView
+                        android:id="@+id/Addressline1text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:text="Addressline1"
+                        android:textColor="@color/grey"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        app:layout_heightPercent="40%"></TextView>
+
+                    <TextView
+                        android:id="@+id/Addressline1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Addressline1text"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:text="6/80 Chinniyampalayam, Kuthambi Po, Thingalur"
+                        android:textColor="@color/lightgrey"
+                        android:textSize="10dp"></TextView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/Addressline2container"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@+id/Addressline1container"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical">
+
+                <RelativeLayout
+                    android:id="@+id/Addressline2imagecontainer"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/Addressline2image"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/usericon"></ImageView>
+
+                </RelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/Addressline2detailscontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/Addressline2imagecontainer"
+                    android:background="@drawable/bottonlinebox">
+
+                    <TextView
+                        android:id="@+id/Addressline2text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:text="Addressline2"
+                        android:textColor="@color/grey"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        app:layout_heightPercent="40%"></TextView>
+
+                    <TextView
+                        android:id="@+id/Addressline2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Addressline2text"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:textColor="@color/lightgrey"
+                        android:textSize="10dp"></TextView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/citycontainer"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/Addressline2container"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical">
+
+                <RelativeLayout
+                    android:id="@+id/cityimagecontainer"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/cityimage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/usericon"></ImageView>
+
+                </RelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/citydetailscontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/cityimagecontainer"
+                    android:background="@drawable/bottonlinebox">
+
+                    <TextView
+                        android:id="@+id/citytext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:text="City"
+                        android:textColor="@color/grey"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        app:layout_heightPercent="50%"></TextView>
+
+                    <TextView
+                        android:id="@+id/city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/citytext"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:textColor="@color/lightgrey"
+                        android:textSize="10dp"
+                        app:layout_heightPercent="50%"></TextView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/pincodecontainer"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/citycontainer"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical">
+
+                <RelativeLayout
+                    android:id="@+id/pincodeimagecontainer"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/pincodeimage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/usericon"></ImageView>
+
+                </RelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/pincodedetailscontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/pincodeimagecontainer"
+                    android:background="@drawable/bottonlinebox">
+
+                    <TextView
+                        android:id="@+id/pincodetext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:text="Pincode"
+                        android:textColor="@color/grey"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        app:layout_heightPercent="50%"></TextView>
+
+                    <TextView
+                        android:id="@+id/pincode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/pincodetext"
+                        android:gravity="bottom"
+                        android:padding="5dp"
+                        android:textColor="@color/lightgrey"
+                        android:textSize="10dp"
+                        app:layout_heightPercent="50%"></TextView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/occupationcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/pincodecontainer"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical">
+
+                <RelativeLayout
+                    android:id="@+id/occupationimagecontainer"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/occupationimage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/usericon"></ImageView>
+
+                </RelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/occupationdetailscontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottonlinebox"
+                    android:layout_toRightOf="@+id/occupationimagecontainer">
+
+                    <TextView
+                        android:id="@+id/occupationtext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_heightPercent="50%"
+                        android:text="Occupation"
+                        android:textColor="@color/grey"
+                        android:textSize="11dp"
+                        android:textStyle="bold"
+                        android:gravity="bottom"
+                        android:padding="5dp"></TextView>
+
+                    <TextView
+                        android:id="@+id/occupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_heightPercent="50%"
+                        android:layout_below="@+id/occupationtext"
+                        android:textColor="@color/lightgrey"
+                        android:textSize="10dp"
+                        android:gravity="bottom"
+                        android:padding="5dp"></TextView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </android.support.v7.widget.CardView>

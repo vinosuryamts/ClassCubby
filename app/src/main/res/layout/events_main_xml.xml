@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/teachersdashboardcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/dashboardpagename"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Events"
+            android:textSize="12dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:background="@color/white"
+            android:textColor="@color/colorAccent"/>
+
+        <ListView
+            android:id="@+id/eventslistview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:scrollingCache="false"
+            android:dividerHeight="1dp"
+            android:divider="@color/lightwhite"
+            android:layout_below="@+id/dashboardpagename">
+        </ListView>
+
+        <TextView
+            android:id="@+id/emptycriteriamsg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="No Events"
+            android:layout_below="@+id/dashboardpagename"
+            android:textColor="@color/grey"
+            android:background="@color/white"
+            android:gravity="center"
+            android:visibility="invisible"/>
+
+        <RelativeLayout
+            android:id="@+id/neweventscontainer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_below="@+id/dashboardpagename">
+            <Button
+                android:id="@+id/neweventsbutton"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                android:background="@drawable/floatingbutton"
+                android:visibility="invisible">
+            </Button>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>

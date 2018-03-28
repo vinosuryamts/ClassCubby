@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/acceptwwholecontainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardCornerRadius="1dp"
+        android:background="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/eventsfirstrowcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:id="@+id/postedtime"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:paddingRight="10dp"
+                android:layout_toRightOf="@+id/posterimage"
+                android:textSize="10dp"
+                android:textColor="@color/colorAccent"
+                android:gravity="right|center_vertical">
+            </TextView>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/Subjectnamecontainer"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/subjectname"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:text="English"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorAccent">
+                </TextView>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/targetcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:layout_below="@+id/Subjectnamecontainer"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/targettitlename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Target Date:"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorAccent">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/targetnamevalue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Target Date:"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible"
+                    android:textColor="@color/colorAccent">
+                </TextView>
+                <TextView
+                    android:id="@+id/targetfilenamevalue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Target Date:"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible"
+                    android:textColor="@color/colorAccent">
+                </TextView>
+                <TextView
+                    android:id="@+id/targetfiletypevalue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Target Date:"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible"
+                    android:textColor="@color/colorAccent">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/targettitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:textSize="11dp"
+                    android:layout_toRightOf="@+id/targettitlename"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorAccent">
+                </TextView>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/titlecontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:layout_below="@+id/targetcontainer"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/titlename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Title:"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorAccent">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:textSize="11dp"
+                    android:layout_toRightOf="@+id/titlename"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorAccent">
+                </TextView>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <TextView
+                android:id="@+id/descriptiontitlename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Assignment"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/titlecontainer"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorAccent">
+            </TextView>
+
+            <TextView
+                android:id="@+id/descriptiontext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descriptiontitlename"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:lineSpacingExtra="3dp"
+                android:textSize="10dp"
+                android:textColor="@color/colorAccent">
+            </TextView>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/previewcontianer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descriptiontext"
+                android:paddingBottom="5dp"
+                android:visibility="visible">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/innerimagecardviewcontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/innerimagecardview"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:elevation="10dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardBackgroundColor="@color/white">
+
+
+                        <android.support.percent.PercentRelativeLayout
+                            android:id="@+id/imagecardviewoverallcontainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <android.support.percent.PercentRelativeLayout
+                                android:id="@+id/innerview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:visibility="visible"
+                                android:layout_above="@+id/imagevaluecontainer"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/iv_bitmap"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:visibility="visible"
+                                    android:scaleType="centerCrop"/>
+
+                            </android.support.percent.PercentRelativeLayout>
+
+                            <android.support.percent.PercentRelativeLayout
+                                android:id="@+id/imagevaluecontainer"
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:elevation="10dp"
+                                android:layout_alignParentBottom="true">
+
+                                <TextView
+                                    android:id="@+id/imagesizevalue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="5dp"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:textColor="@color/lighttextcolor"
+                                    android:textSize="9dp"
+                                    android:gravity="center_vertical"/>
+
+
+                                <TextView
+                                    android:id="@+id/dot"
+                                    android:layout_width="5dp"
+                                    android:layout_height="5dp"
+                                    android:layout_toRightOf="@+id/imagesizevalue"
+                                    android:layout_marginLeft="2dp"
+                                    android:background="@drawable/dotcircle"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:textColor="@color/lighttextcolor"
+                                    android:textSize="12dp"
+                                    android:layout_marginTop="6dp"/>
+
+
+                                <TextView
+                                    android:id="@+id/imagetypenamepreview"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="2dp"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:textColor="@color/lighttextcolor"
+                                    android:textSize="9dp"
+                                    android:textAllCaps="true"
+                                    android:layout_toRightOf="@+id/dot"
+                                    android:gravity="center_vertical"/>
+
+                            </android.support.percent.PercentRelativeLayout>
+
+                        </android.support.percent.PercentRelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+
+                            <RelativeLayout
+                                android:id="@+id/downloadbackgroundcolor"
+                                android:layout_width="70dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/downloadbackground"
+                                android:gravity="center">
+
+                                <RelativeLayout
+                                    android:id="@+id/imagedownloadlayout"
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:visibility="visible"
+                                    android:layout_alignParentRight="true">
+
+                                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                        android:id="@+id/imagedownloadingprogress"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:cpb_background_progressbar_color="@color/white"
+                                        app:cpb_background_progressbar_width="2dp"
+                                        app:cpb_progressbar_color="@color/blue"
+                                        app:cpb_progressbar_width="3dp"/>
+
+                                    <TextView
+                                        android:id="@+id/imagedownloadtext"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center"
+                                        android:text="@string/attachmentdownload"
+                                        android:textColor="@color/white"
+                                        android:textSize="18dp"/>
+
+                                    <TextView
+                                        android:id="@+id/imagedownloadcanceltext"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center"
+                                        android:text="@string/downloadcancel"
+                                        android:textColor="@color/white"
+                                        android:textSize="18dp"/>
+
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/innerfilescardviewcontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/innercardview"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="5dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardBackgroundColor="@color/white">
+
+                        <android.support.percent.PercentRelativeLayout
+                            android:id="@+id/cardviewoverallcontainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <android.support.percent.PercentRelativeLayout
+                                android:id="@+id/innerview1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/cornerradius"
+                                android:layout_margin="5dp"
+                                android:visibility="visible"
+                                android:layout_above="@+id/filesvaluecontainer"
+                                android:gravity="center_vertical">
+
+                                <RelativeLayout
+                                    android:id="@+id/filetypename1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="35dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:gravity="center_vertical">
+                                    <ImageView
+                                        android:id="@+id/iconpreviewer1"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_marginTop="3dp"
+                                        android:src="@drawable/pdficon"/>
+                                    <TextView
+                                        android:id="@+id/filenametext"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_toRightOf="@+id/iconpreviewer1"
+                                        android:text="Vinod Kumar documnent"
+                                        android:gravity="center_vertical"
+                                        android:textColor="@color/colorAccent"
+                                        android:textSize="11dp"
+                                        android:textStyle="bold"
+                                        android:paddingLeft="5dp"/>
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/filedownloadbuttonlayout"
+                                    android:layout_width="30dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true">
+
+                                    <TextView
+                                        android:id="@+id/downloadtext"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="@string/attachmentdownload"
+                                        android:textColor="@color/lighttextcolor"
+                                        android:textSize="11dp"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/filecancellayout"
+                                    android:layout_width="30dp"
+                                    android:layout_height="match_parent"
+                                    android:visibility="visible"
+                                    android:layout_alignParentRight="true">
+
+                                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                        android:id="@+id/filedownloadingprogress"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:cpb_background_progressbar_color="@color/lighttextcolor"
+                                        app:cpb_background_progressbar_width="1dp"
+                                        app:cpb_progressbar_color="@color/blue"
+                                        app:cpb_progressbar_width="2dp"/>
+
+                                    <TextView
+                                        android:id="@+id/downloadcanceltext"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center"
+                                        android:text="@string/downloadcancel"
+                                        android:textColor="@color/lighttextcolor"
+                                        android:textSize="11dp"/>
+                                </RelativeLayout>
+
+                            </android.support.percent.PercentRelativeLayout>
+
+                            <android.support.percent.PercentRelativeLayout
+                                android:id="@+id/filesvaluecontainer"
+                                android:layout_width="match_parent"
+                                android:layout_height="18dp"
+                                android:layout_alignParentBottom="true">
+
+                                <TextView
+                                    android:id="@+id/filesizevalue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="5dp"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:textColor="@color/lighttextcolor"
+                                    android:textSize="9dp"
+                                    android:gravity="center_vertical"/>
+
+
+                                <TextView
+                                    android:id="@+id/dot1"
+                                    android:layout_width="5dp"
+                                    android:layout_height="5dp"
+                                    android:layout_toRightOf="@+id/filesizevalue"
+                                    android:layout_marginLeft="2dp"
+                                    android:background="@drawable/dotcircle"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:textColor="@color/lighttextcolor"
+                                    android:textSize="12dp"
+                                    android:layout_marginTop="7dp"/>
+
+
+                                <TextView
+                                    android:id="@+id/filetypenamepreview"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="2dp"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:textColor="@color/lighttextcolor"
+                                    android:textSize="9dp"
+                                    android:textAllCaps="true"
+                                    android:layout_toRightOf="@+id/dot1"
+                                    android:gravity="center_vertical"/>
+
+                            </android.support.percent.PercentRelativeLayout>
+
+                        </android.support.percent.PercentRelativeLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.percent.PercentRelativeLayout>

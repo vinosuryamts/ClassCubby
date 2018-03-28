@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/classlistcontainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/overallcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/maincontainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:gravity="top">
+
+            <RelativeLayout
+                android:id="@+id/colorcontainer"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:layout_heightPercent="100%"
+                android:gravity="center">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/colorimage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"/>
+
+            </RelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/overalltextcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/colorcontainer"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/studentname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:paddingLeft="10dp">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/notificationid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/lightgrey"
+                    android:textSize="11dp"
+                    android:textStyle="bold"
+                    android:paddingLeft="10dp"
+                    android:visibility="invisible">
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/imageview"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_below="@+id/studentname"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"></ImageView>
+
+
+                <TextView
+                    android:id="@+id/countvalue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/studentname"
+                    android:layout_toRightOf="@+id/imageview"
+                    android:layout_marginTop="5dp"
+                    android:textSize="11dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue"></TextView>
+
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>
+
+

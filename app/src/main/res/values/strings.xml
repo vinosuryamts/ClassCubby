@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Gamcngl</string>
+
+    <string name="newsfeeds">&#xf015;</string>
+    <string name="attendance">&#xf02d;</string>
+    <string name="assignments">&#xf14b;</string>
+    <string name="leavetracker">&#xf2b6;</string>
+    <string name="messagedirect">&#xf1d8;</string>
+    <string name="addfeeds">&#xf0fe;</string>
+    <string name="friends">&#xf0c0;</string>
+    <string name="outgoing">&#xf1b9;</string>
+    <string name="notification">&#xf0f3;</string>
+    <string name="attachmentdownload">&#xf063;</string>
+    <string name="downloadcancel">&#xf00d;</string>
+    <string name="error_config">Error Pushing Notification</string>
+
+    <string name="emptypendingleaves">No Pending Leave Requests Available</string>
+    <string name="emptyacceptleaves">No Accepted Leave Requests</string>
+    <string name="emptyrejectleaves">No Rejected Leave Requests</string>
+
+    <string name="signupsupport">Kindly contact " support@gamcngl.com " to set up a new account for your college.</string>
+    <string name="forgotpasswordsupport">To find your account, enter your email address associated with your account.</string>
+    <string name="emailsentsuccessmesage">A confirmation email has been sent successfully to your mail. Kindly Check and enter the activation code below to continue reset password.</string>
+    <string name="changepasswordmessage">Verification is successful. Please change your password below.</string>
+    <string name="passsuccess">Password is changed successfully. Click below to Continue.</string>
+</resources>

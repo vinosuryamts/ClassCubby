@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/recentattendanceoverallcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/white">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/departmentnamecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:id="@+id/departmentcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/departmentname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightblack"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="BAMS First Year - A"
+                    android:textSize="11dp"/>
+
+            </RelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/presentcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_marginTop="95dp"
+            android:elevation="10dp">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/presentimagecard"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginRight="120dp"
+                app:cardBackgroundColor="@color/white"
+                android:gravity="center">
+
+
+                <android.support.percent.PercentRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/presentimage"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/presenticon"/>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/presentcount"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:text="10"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-5dp"
+                android:textSize="9dp"
+                android:background="@drawable/presenticoncircularborder"
+                android:textColor="@color/white"/>
+
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/absentcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_marginTop="95dp"
+            android:layout_marginLeft="5dp"
+            android:elevation="10dp">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/absentimagecard"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/white"
+                android:gravity="center">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/absentimage"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/absenticon"/>
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/absentcount"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:text="10"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="-5dp"
+                android:textSize="9dp"
+                android:background="@drawable/absenticoncircularborder"
+                android:textColor="@color/white"/>
+
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/ondutycontainer"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:elevation="10dp"
+            android:layout_marginTop="95dp">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/ondutyimagecard"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginLeft="120dp"
+                app:cardBackgroundColor="@color/white"
+                android:gravity="center">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ondutyimage"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/ondutyicon"/>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/ondutycount"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:text="10"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="-5dp"
+                android:textStyle="bold"
+                android:textSize="9dp"
+                android:background="@drawable/ondutyiconcircularborder"
+                android:textColor="@color/white"/>
+
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/takendatecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/departmentnamecontainer">
+
+            <TextView
+                android:id="@+id/takendate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="03-10-2017"
+                android:textSize="11dp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/hournamecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/takendatecontainer">
+
+            <TextView
+                android:id="@+id/hourname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="Ayurveda Nirupana ( 9:00 AM to 10:00 AM ) "
+                android:textSize="11dp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>

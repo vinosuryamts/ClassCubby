@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/recentattendanceoverallcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/white">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/departmentnamecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="25dp">
+
+            <TextView
+                android:id="@+id/departmentname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dp"
+                android:textSize="12dp"
+                android:textStyle="bold"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/takendatecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_below="@+id/departmentnamecontainer">
+
+            <TextView
+                android:id="@+id/takendate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dp"
+                android:textSize="12dp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/hournamecontainer"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_below="@+id/takendatecontainer">
+
+            <TextView
+                android:id="@+id/hourname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dp"
+                android:textSize="12dp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/presentabsentcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/hournamecontainer">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/presentcontainer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginLeft="25dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/presentimage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/presenticon"/>
+
+                <TextView
+                    android:id="@+id/presentcount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_toRightOf="@+id/presentimage"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorAccent"/>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/absentcontainer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/presentcontainer"
+                android:layout_marginLeft="25dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/absentimage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/excusedabsenticon"/>
+
+                <TextView
+                    android:id="@+id/absentcount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_toRightOf="@+id/absentimage"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorAccent"/>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/ondutycontainer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/absentcontainer"
+                android:layout_marginLeft="25dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ondutyimage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ondutyicon"/>
+
+                <TextView
+                    android:id="@+id/ondutycount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_toRightOf="@+id/ondutyimage"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorAccent"/>
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>

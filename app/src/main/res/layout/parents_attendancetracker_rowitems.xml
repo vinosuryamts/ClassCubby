@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/acceptwwholecontainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/innerrelview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_gravity="center_vertical">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/firstrow"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                app:layout_widthPercent="50%"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/hourname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:textSize="11dp"
+                    android:gravity="center"></TextView>
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/secondrow"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_toRightOf="@+id/firstrow"
+                app:layout_widthPercent="50%"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/attendancevalue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:textSize="11dp"
+                    android:gravity="center"></TextView>
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>

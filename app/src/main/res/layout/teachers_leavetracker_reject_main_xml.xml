@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/leavemainlayout"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/activity_main_swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/rejectlistview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:saveEnabled="true"
+            android:dividerHeight="1dp"
+            android:divider="@color/lightwhite"
+            android:scrollingCache="false"
+            android:layout_below="@+id/attendancepagename">
+        </ListView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/emptyrejectleaves"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:gravity="center"
+        android:text="@string/emptyrejectleaves"
+        android:textColor="@color/grey"
+        android:visibility="invisible"
+        android:textSize="11dp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rejectleavecount"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/rejectcount"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/floatingbutton"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

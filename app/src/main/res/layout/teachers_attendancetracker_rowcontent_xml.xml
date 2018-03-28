@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/attendancerowwholecontainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/attendancerow"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/imagecontainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="20%"
+            android:padding="10dp"
+            android:gravity="center_horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/innercontainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/imagecontainer"
+            android:layout_toLeftOf="@+id/attendancecontainer">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/firstrowcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_heightPercent="50%"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/namecontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/studentname"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_heightPercent="50%"
+                        android:textColor="@color/colorAccent"
+                        android:text="Vinod Kumar"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/studentattendance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_heightPercent="50%"
+                        android:layout_below="@+id/studentname"
+                        android:textColor="@color/colorAccent"
+                        android:text="Present"
+                        android:textSize="12dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp">
+                    </TextView>
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/secondrowcontainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/firstrowcontainer">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/checkboxcontainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <CheckBox
+                        android:id="@+id/leavecommunicated"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="androidCheckBoxClicked"
+                        android:textColor="@color/colorAccent"
+                        android:buttonTint="@color/lightblack"
+                        android:textSize="11dp"
+                        android:text="Leave Communicated" />
+
+                </android.support.percent.PercentRelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/attendancecontainer"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:layout_alignParentRight="true">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/attendanceimage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="25dp"
+                app:cardBackgroundColor="@color/white"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/attendancevalueimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/presenticon"/>
+
+            </android.support.v7.widget.CardView>
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>
