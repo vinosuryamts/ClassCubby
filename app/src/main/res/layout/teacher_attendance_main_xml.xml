@@ -13,7 +13,7 @@
         <TextView
             android:id="@+id/attendancepagename"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:paddingLeft="20dp"
@@ -21,27 +21,51 @@
             android:textColor="@color/colorAccent"
             android:textSize="12dp" />
 
-        <ListView
-            android:id="@+id/attendancelistview"
+        <RelativeLayout
+            android:id="@+id/searchcontainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/attendancepagename"
-            android:background="@color/white"
-            android:divider="@color/lightwhite"
-            android:dividerHeight="1dp"
-            android:saveEnabled="true"
-            android:scrollingCache="false" />
+            android:layout_below="@+id/attendancepagename">
 
-        <GridView
-            android:id="@+id/attendancegridview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/attendancepagename"
-            android:background="@color/lightwhite"
-            android:horizontalSpacing="1dp"
-            android:numColumns="2"
-            android:verticalSpacing="1dp"
-            android:visibility="invisible"></GridView>
+            <EditText
+                android:id="@+id/search"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:hint="Search"
+                android:textSize="14sp"
+                android:textColor="@color/lighttextcolor"
+                android:paddingLeft="10dp"
+                android:visibility="gone"
+                android:textCursorDrawable="@drawable/black_cursor"
+                app:backgroundTint="#333333">
+                <requestFocus />
+            </EditText>
+
+            <ListView
+                android:id="@+id/attendancelistview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:divider="@color/lightwhite"
+                android:dividerHeight="1dp"
+                android:layout_below="@+id/search"
+                android:saveEnabled="true"
+                android:scrollingCache="false" />
+
+            <GridView
+                android:id="@+id/attendancegridview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/search"
+                android:background="@color/lightwhite"
+                android:horizontalSpacing="1dp"
+                android:numColumns="2"
+                android:verticalSpacing="1dp"
+                android:visibility="invisible"></GridView>
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/empty"

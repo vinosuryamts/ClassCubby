@@ -227,6 +227,7 @@ public class Accepted_Leaveletter_tab extends Fragment {
 
         loadingstatevalue = 0;
 
+        sharedPreferences = getActivity().getSharedPreferences(MY_PREFERENCES, MainActivity.MODE_PRIVATE);
         userid = MainActivity.sharedPreferences.getString(loginconfig.key_userid, "");
 
         /*loadingdialog = new ProgressDialog(getActivity());
@@ -414,8 +415,8 @@ public class Accepted_Leaveletter_tab extends Fragment {
                                     loadingdialog.dismiss();
                                 }
                                 loadingstatevalue = 1;
-                                //snackbar = Snackbar.make(view, "You are Not a Mentor of any Class, Kindly Contact School Admin to assign You as a mentor", Snackbar.LENGTH_LONG);
-                                //snackbar.show();
+                                snackbar = Snackbar.make(view, "You are Not a Mentor of any Class, Kindly Contact School Admin to assign You as a mentor", Snackbar.LENGTH_LONG);
+                                snackbar.show();
                                 if (timervalue == true) {
                                     t.cancel();
                                     t = null;

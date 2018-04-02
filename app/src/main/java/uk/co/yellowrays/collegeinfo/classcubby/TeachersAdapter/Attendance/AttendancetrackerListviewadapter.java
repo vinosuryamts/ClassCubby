@@ -22,6 +22,8 @@ import uk.co.yellowrays.collegeinfo.classcubby.R;
 
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by user1 on 16-11-2016.
@@ -40,11 +42,14 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
     ImageView vk;
     CheckBox checkedbox;
     private int lastPosition = -1 ;
+    private List<AttendanceList> studentlist;
+    private static List<AttendanceList> originalstudentlist;
+    private ArrayList<AttendanceList> arraylist = null;
     int imagepresent,imageexcusedabsent,imageonduty,imagesuspended,imageabsent;
 
     public AttendancetrackerListviewadapter(Context context, ArrayList<String> studentidlist,
                                             ArrayList<String> namelist, ArrayList<String> ImageList, ArrayList<String> rollnumberlist,
-                                            ArrayList<String> attendancevaluelist, int[] attendancevalues) {
+                                            ArrayList<String> attendancevaluelist, int[] attendancevalues,List<AttendanceList> patientlist,List<AttendanceList> patientoriginallist) {
         this.context = context;
         this.idlist = studentidlist;
         this.dataList = namelist;
@@ -53,6 +58,10 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
         this.values = attendancevaluelist;
         this.attendancelistvalue = attendancevaluelist;
         this.attendval = attendancevalues;
+        this.arraylist = new ArrayList<AttendanceList>();
+        this.arraylist.addAll(patientlist);
+        this.studentlist = patientlist;
+        this.originalstudentlist = patientoriginallist;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         testval = new String[dataList.size()];
@@ -60,7 +69,7 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return dataList.size();
+        return studentlist.size();
     }
 
     @Override
@@ -73,9 +82,8 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
         return position;
     }
 
-    public static ArrayList<String> getAttendancelistvalue(){
-
-        return attendancelistvalue;
+    public static List<AttendanceList> getAttendancelistvalue(){
+        return originalstudentlist;
     }
 
     public ArrayList<String> getattendanceValues(){
@@ -118,10 +126,10 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
         holder.name.setTypeface(boldtypeface);
         holder.leavecommunicated.setTypeface(normaltypeface);
 
-        holder.name.setText(dataList.get(position));
+        holder.name.setText(studentlist.get(position).getstudentname());
 
 
-        Glide.with(context).load(imageList.get(position)).listener(new RequestListener<String, GlideDrawable>() {
+        Glide.with(context).load(studentlist.get(position).getstudentimage()).listener(new RequestListener<String, GlideDrawable>() {
             @Override
             public boolean onException(Exception e, String s, Target<GlideDrawable> target, boolean b) {
                 Log.i("GLIDE", "onException :", e);
@@ -136,19 +144,31 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
             }
         }).into(holder.usericon);
 
-        testval[position] = values.get(position);
+        String attendancevalue = studentlist.get(position).getattendancevalue();
 
-        if (testval[position] == null) {
+        if (attendancevalue == null) {
             holder.atttendanceimagevalue.setImageResource(imagepresent);
             holder.attendvalue.setText("Present");
             holder.atttendanceimagevalue.setTag("Present");
             testval[position] = "Present";
             values.set(position, "Present");
             attendancelistvalue.set(position, "Present");
+            studentlist.get(position).setattendancevalue("Present");
+
+            int length = originalstudentlist.size();
+            for(int i=0; i<length;i++){
+                String id = originalstudentlist.get(i).getstudentid();
+                if(id==studentlist.get(position).getstudentid()){
+                    originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                    break;
+                }
+            }
+
+
             holder.leavecommunicated.setChecked(false);
             holder.attendvalue.setTextColor(context.getResources().getColor(R.color.present));
         } else {
-            if(values.get(position).equals("Present"))
+            if(attendancevalue.equals("Present"))
             {
                 holder.atttendanceimagevalue.setImageResource(Integer.valueOf(imagepresent));
                 holder.attendvalue.setText("Present");
@@ -156,10 +176,21 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                 testval[position] = "Present";
                 values.set(position, "Present");
                 attendancelistvalue.set(position, "Present");
+                studentlist.get(position).setattendancevalue("Present");
+
+                int length = originalstudentlist.size();
+                for(int i=0; i<length;i++){
+                    String id = originalstudentlist.get(i).getstudentid();
+                    if(id==studentlist.get(position).getstudentid()){
+                        originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                        break;
+                    }
+                }
+
                 holder.leavecommunicated.setChecked(false);
                 holder.attendvalue.setTextColor(context.getResources().getColor(R.color.present));
 
-            }else if(values.get(position).equals("Absent"))
+            }else if(attendancevalue.equals("Absent"))
             {
                 holder.atttendanceimagevalue.setImageResource(Integer.valueOf(imageabsent));
                 holder.attendvalue.setText("Absent");
@@ -167,9 +198,20 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                 testval[position] = "Absent";
                 values.set(position, "Absent");
                 attendancelistvalue.set(position, "Absent");
+                studentlist.get(position).setattendancevalue("Absent");
+
+                int length = originalstudentlist.size();
+                for(int i=0; i<length;i++){
+                    String id = originalstudentlist.get(i).getstudentid();
+                    if(id==studentlist.get(position).getstudentid()){
+                        originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                        break;
+                    }
+                }
+
                 holder.leavecommunicated.setChecked(false);
                 holder.attendvalue.setTextColor(context.getResources().getColor(R.color.absent));
-            }else if(values.get(position).equals("Excused Absent"))
+            }else if(attendancevalue.equals("Excused Absent"))
             {
                 holder.atttendanceimagevalue.setImageResource(Integer.valueOf(imageexcusedabsent));
                 holder.attendvalue.setText("Excused Absent");
@@ -177,9 +219,20 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                 testval[position] = "Excused Absent";
                 values.set(position, "Excused Absent");
                 attendancelistvalue.set(position, "Excused Absent");
+                studentlist.get(position).setattendancevalue("Excused Absent");
+
+                int length = originalstudentlist.size();
+                for(int i=0; i<length;i++){
+                    String id = originalstudentlist.get(i).getstudentid();
+                    if(id==studentlist.get(position).getstudentid()){
+                        originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                        break;
+                    }
+                }
+
                 holder.leavecommunicated.setChecked(true);
                 holder.attendvalue.setTextColor(context.getResources().getColor(R.color.excusedabsent));
-            }else if(values.get(position).equals("On-Duty"))
+            }else if(attendancevalue.equals("On-Duty"))
             {
                 holder.atttendanceimagevalue.setImageResource(Integer.valueOf(imageonduty));
                 holder.attendvalue.setText("On-Duty");
@@ -187,6 +240,17 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                 testval[position] = "On-Duty";
                 values.set(position, "On-Duty");
                 attendancelistvalue.set(position, "On-Duty");
+                studentlist.get(position).setattendancevalue("On-Duty");
+
+                int length = originalstudentlist.size();
+                for(int i=0; i<length;i++){
+                    String id = originalstudentlist.get(i).getstudentid();
+                    if(id==studentlist.get(position).getstudentid()){
+                        originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                        break;
+                    }
+                }
+
                 holder.leavecommunicated.setChecked(false);
                 holder.attendvalue.setTextColor(context.getResources().getColor(R.color.onduty));
             }else {
@@ -196,6 +260,17 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                 testval[position] = "Present";
                 values.set(position, "Present");
                 attendancelistvalue.set(position, "Present");
+                studentlist.get(position).setattendancevalue("Present");
+
+                int length = originalstudentlist.size();
+                for(int i=0; i<length;i++){
+                    String id = originalstudentlist.get(i).getstudentid();
+                    if(id==studentlist.get(position).getstudentid()){
+                        originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                        break;
+                    }
+                }
+
                 holder.leavecommunicated.setChecked(false);
                 holder.attendvalue.setTextColor(context.getResources().getColor(R.color.present));
             }
@@ -223,6 +298,17 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                         values.set(position, "Absent");
                         attendancelistvalue.set(position, "Absent");
                         testval[position] = "Absent";
+                        studentlist.get(position).setattendancevalue("Absent");
+
+                        int length = originalstudentlist.size();
+                        for(int i=0; i<length;i++){
+                            String id = originalstudentlist.get(i).getstudentid();
+                            if(id==studentlist.get(position).getstudentid()){
+                                originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                                break;
+                            }
+                        }
+
                         holder.leavecommunicated.setChecked(false);
                         holder.attendvalue.setTextColor(context.getResources().getColor(R.color.absent));
                     }else if(tagvalue.equals("Absent")){
@@ -232,6 +318,17 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                         values.set(position, "Excused Absent");
                         attendancelistvalue.set(position, "Excused Absent");
                         testval[position] = "Excused Absent";
+                        studentlist.get(position).setattendancevalue("Excused Absent");
+
+                        int length = originalstudentlist.size();
+                        for(int i=0; i<length;i++){
+                            String id = originalstudentlist.get(i).getstudentid();
+                            if(id==studentlist.get(position).getstudentid()){
+                                originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                                break;
+                            }
+                        }
+
                         holder.leavecommunicated.setChecked(true);
                         holder.attendvalue.setTextColor(context.getResources().getColor(R.color.excusedabsent));
                     }else if(tagvalue.equals("Excused Absent")){
@@ -241,6 +338,17 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                         values.set(position, "On-Duty");
                         attendancelistvalue.set(position, "On-Duty");
                         testval[position] = "On-Duty";
+                        studentlist.get(position).setattendancevalue("On-Duty");
+
+                        int length = originalstudentlist.size();
+                        for(int i=0; i<length;i++){
+                            String id = originalstudentlist.get(i).getstudentid();
+                            if(id==studentlist.get(position).getstudentid()){
+                                originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                                break;
+                            }
+                        }
+
                         holder.leavecommunicated.setChecked(false);
                         holder.attendvalue.setTextColor(context.getResources().getColor(R.color.onduty));
                     }else if(tagvalue.equals("On-Duty")){
@@ -250,6 +358,17 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                         values.set(position, "Present");
                         attendancelistvalue.set(position, "Present");
                         testval[position] = "Present";
+                        studentlist.get(position).setattendancevalue("Present");
+
+                        int length = originalstudentlist.size();
+                        for(int i=0; i<length;i++){
+                            String id = originalstudentlist.get(i).getstudentid();
+                            if(id==studentlist.get(position).getstudentid()){
+                                originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                                break;
+                            }
+                        }
+
                         holder.leavecommunicated.setChecked(false);
                         holder.attendvalue.setTextColor(context.getResources().getColor(R.color.present));
                     }
@@ -284,6 +403,17 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                         holder.atttendanceimagevalue.setTag("Excused Absent");
                         values.set(position, "Excused Absent");
                         attendancelistvalue.set(position, "Excused Absent");
+                        studentlist.get(position).setattendancevalue("Excused Absent");
+
+                        int length = originalstudentlist.size();
+                        for(int i=0; i<length;i++){
+                            String id = originalstudentlist.get(i).getstudentid();
+                            if(id==studentlist.get(position).getstudentid()){
+                                originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                                break;
+                            }
+                        }
+
                         testval[position] = "Excused Absent";
                         holder.attendvalue.setTextColor(context.getResources().getColor(R.color.excusedabsent));
                     } else {
@@ -293,6 +423,17 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
                         holder.atttendanceimagevalue.setTag("Present");
                         values.set(position, "Present");
                         attendancelistvalue.set(position, "Present");
+                        studentlist.get(position).setattendancevalue("Present");
+
+                        int length = originalstudentlist.size();
+                        for(int i=0; i<length;i++){
+                            String id = originalstudentlist.get(i).getstudentid();
+                            if(id==studentlist.get(position).getstudentid()){
+                                originalstudentlist.get(i).setattendancevalue(studentlist.get(position).getattendancevalue());
+                                break;
+                            }
+                        }
+
                         testval[position] = "Present";
                         holder.attendvalue.setTextColor(context.getResources().getColor(R.color.present));
                     }
@@ -314,6 +455,26 @@ public class AttendancetrackerListviewadapter extends BaseAdapter {
         },100);
 
         return row;
+    }
+
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        studentlist.clear();
+        if (charText.length() == 0) {
+            studentlist.addAll(arraylist);
+        }
+        else
+        {
+            for (AttendanceList wp : arraylist)
+            {
+                if (wp.getstudentname().toLowerCase(Locale.getDefault()).contains(charText) || wp.getrollnumber().toLowerCase(Locale.getDefault()).contains(charText) )
+                {
+                    studentlist.add(wp);
+                }
+            }
+        }
+
+        notifyDataSetChanged();
     }
 
 }

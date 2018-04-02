@@ -12,6 +12,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -21,6 +23,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -40,6 +43,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import uk.co.yellowrays.collegeinfo.classcubby.FontManager.CustomTabLayout;
@@ -65,11 +70,15 @@ public class RecentAttendanceListViewAdapter extends BaseAdapter {
     TextView emptytext,attendancepagename;
     Button submitbutton;
     ViewHolder holder;
+    EditText search;
     TextView vkdepartmentname,vkhourname,vkpresentcount,vkabsentcount,vkondutycount,vktakendate;
     private FragmentActivity myContext;
     FloatingActionButton filter;
 
 
+    AttendancetrackerListviewadapter listviewadapter;
+    List<AttendanceList> arraylist = new ArrayList<AttendanceList>();
+    List<AttendanceList> initialarraylist = new ArrayList<AttendanceList>();
     ArrayList<String> classid,classnamelist,hourid,hourname,absentcountval,presentcountval,ondutycountval,takendate;
     public ArrayList<String> namelist,studentidlist,rollnumberlist,attendancevaluelist;
     public ArrayList<String> ImageList;
@@ -110,7 +119,7 @@ public class RecentAttendanceListViewAdapter extends BaseAdapter {
                                            ArrayList<String> ondutycountlist, ArrayList<String> takendatelist,
                                            ListView attendancelistview, TextView empty, Button submit, String schoolid,
                                            TextView attendancepagename, View view, RelativeLayout attendancepagemaincontainer,
-                                           FloatingActionButton filter, RelativeLayout innerfilterlayout, GridView attendancegridview) {
+                                           FloatingActionButton filter, RelativeLayout innerfilterlayout, GridView attendancegridview, EditText search) {
         this.context = context;
         this.activitycontext = context;
         this.classid = classidlist;
@@ -129,6 +138,7 @@ public class RecentAttendanceListViewAdapter extends BaseAdapter {
         this.attendancepagemaincontainer = attendancepagemaincontainer;
         this.mainview = view;
         this.filter = filter;
+        this.search = search;
         this.attendancegridview = attendancegridview;
         this.innerfilterlayout = innerfilterlayout;
         this.newgenerateclicled = false;
@@ -441,10 +451,48 @@ public class RecentAttendanceListViewAdapter extends BaseAdapter {
 
                                             submitbutton.setClickable(true);
 
+
+                                            for (int i = 0; i < studentidlist.size(); i++)
+                                            {
+                                                AttendanceList wp = new AttendanceList(studentidlist.get(i),namelist.get(i),
+                                                        ImageList.get(i),rollnumberlist.get(i),attendancevaluelist.get(i));
+                                                // Binds all strings into an array
+                                                arraylist.add(wp);
+                                                initialarraylist.add(wp);
+                                            }
+
+
+
+                                            search.setVisibility(View.VISIBLE);
+                                            search.setText("");
+
                                             attendancegridview.setVisibility(View.VISIBLE);
-                                            //attendancelist.setAdapter(new AttendancetrackerListviewadapter(context, studentidlist, namelist, ImageList, rollnumberlist, attendancevaluelist, attendancevalues));
-                                            attendancegridview.setAdapter(new AttendancetrackerListviewadapter(context, studentidlist, namelist, ImageList, rollnumberlist, attendancevaluelist, attendancevalues));
+                                            listviewadapter = new AttendancetrackerListviewadapter(context, studentidlist, namelist, ImageList, rollnumberlist, attendancevaluelist, attendancevalues,arraylist,initialarraylist);
+                                            attendancegridview.setAdapter(listviewadapter);
                                             attendancegridview.setNumColumns(2);
+
+
+                                            search.addTextChangedListener(new TextWatcher() {
+
+                                                @Override
+                                                public void afterTextChanged(Editable arg0) {
+                                                    // TODO Auto-generated method stub
+                                                    String text = search.getText().toString().toLowerCase(Locale.getDefault());
+                                                    listviewadapter.filter(text);
+                                                }
+
+                                                @Override
+                                                public void beforeTextChanged(CharSequence arg0, int arg1,
+                                                                              int arg2, int arg3) {
+                                                    // TODO Auto-generated method stub
+                                                }
+
+                                                @Override
+                                                public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+                                                                          int arg3) {
+                                                    // TODO Auto-generated method stub
+                                                }
+                                            });
 
 
                                             attendancegridview.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -468,6 +516,7 @@ public class RecentAttendanceListViewAdapter extends BaseAdapter {
 
                                         } else {
 
+                                            search.setVisibility(View.GONE);
                                             emptytext.setText("No Students are mapped to this class.");
                                             emptytext.setVisibility(View.VISIBLE);
                                             attendancelist.setVisibility(View.INVISIBLE);

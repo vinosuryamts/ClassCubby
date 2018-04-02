@@ -3,12 +3,15 @@ package uk.co.yellowrays.collegeinfo.classcubby.TeachersAdapter.Attendance;
 import android.animation.Animator;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -17,12 +20,14 @@ import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -40,14 +45,19 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import uk.co.yellowrays.collegeinfo.classcubby.AppStatus;
 import uk.co.yellowrays.collegeinfo.classcubby.FontManager.CustomTabLayout;
+import uk.co.yellowrays.collegeinfo.classcubby.LoginActivity;
 import uk.co.yellowrays.collegeinfo.classcubby.MainActivity;
 import uk.co.yellowrays.collegeinfo.classcubby.R;
+import uk.co.yellowrays.collegeinfo.classcubby.Teacher_Dashboard_Activity;
+import uk.co.yellowrays.collegeinfo.classcubby.TeachersAdapter.LeaveTracker.Teacher_LeaveTracker_Main_Activity;
 import uk.co.yellowrays.collegeinfo.classcubby.configfiles.loginconfig;
 import uk.co.yellowrays.collegeinfo.classcubby.configfiles.previousloginconfig;
 import uk.co.yellowrays.collegeinfo.classcubby.customtabadapter.CustomViewPager;
@@ -63,6 +73,7 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
     CustomViewPager viewpager;
     CustomTabLayout tabLayout;
     TextView attendancepagename,datetext,empty,newrecenttext;
+    EditText search;
     ListView attendancelistview;
     GridView attendancegridview;
     Snackbar snackbar;
@@ -88,6 +99,10 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
     String attendanceclass,attendancesection,attendancehour,attendancedate;
     String loginuser;
 
+    AttendancetrackerListviewadapter listviewadapter;
+    List<AttendanceList> arraylist = new ArrayList<AttendanceList>();
+    List<AttendanceList> initialarraylist = new ArrayList<AttendanceList>();
+    List<AttendanceList> gettingupdatedlist = new ArrayList<AttendanceList>();
     ArrayList<String> id ,username;
     ArrayList<String> schoolidlist,schoolnamelist,classidlist,classnamelist,sectionidlist,houridlist,hournamelist,absentcountlist,presentcountlist,ondutycountlist,takendatelist;
     ArrayList<String> attendancevaluesfromadapter;
@@ -139,6 +154,7 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
         attendancepagename = (TextView)view.findViewById(R.id.attendancepagename);
         attendancelistview = (ListView)view.findViewById(R.id.attendancelistview);
         attendancegridview = (GridView) view.findViewById(R.id.attendancegridview);
+        search = (EditText) view.findViewById(R.id.search);
         filter = (FloatingActionButton)view.findViewById(R.id.filter);
         generate = (Button) view.findViewById(R.id.generatestudentslist);
         submit = (Button) view.findViewById(R.id.submitstudentslist);
@@ -170,6 +186,10 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
 
         t = new Timer();
 
+        search.setVisibility(View.GONE);
+
+        getclasslist();
+
         timervalue =true;
         t.scheduleAtFixedRate(new TimerTask() {
 
@@ -177,6 +197,7 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
             public void run() {
                 if(isgenerateclicked==false) {
                     getrecentattendancecount();
+                    getclasslist();
                 }
             }
 
@@ -240,7 +261,7 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
                         filter.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.white)));
                         filter.setImageResource(R.drawable.closepopup);
 
-                        final String classarray = MainActivity.sharedPreferences.getString(loginconfig.key_class_name, "classnamesection");
+                        final String classarray = sharedPreferences.getString(loginconfig.key_class_name, "classnamesection");
                         try {
                             loginresult = new JSONArray(classarray);
                         } catch (JSONException e) {
@@ -369,6 +390,7 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
         generate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 if(classspinner.getSelectedItem() != null) {
                     classlistspinner = classspinner.getSelectedItem().toString().trim();
@@ -593,16 +615,55 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
 
                                             attendancepagename.setText("Attendance for Class " + classlistspinner);
 
+                                            search.setVisibility(View.VISIBLE);
+                                            search.setText("");
+
+                                            arraylist = new ArrayList<AttendanceList>(studentidlist.size());
+                                            initialarraylist = new ArrayList<AttendanceList>(studentidlist.size());
+
+                                            for (int i = 0; i < studentidlist.size(); i++)
+                                            {
+                                                AttendanceList wp = new AttendanceList(studentidlist.get(i),namelist.get(i),
+                                                        ImageList.get(i),rollnumberlist.get(i),attendancevaluelist.get(i));
+                                                // Binds all strings into an array
+                                                arraylist.add(wp);
+                                                initialarraylist.add(wp);
+                                            }
+
+
                                             attendancegridview.setVisibility(View.VISIBLE);
-                                            AttendancetrackerListviewadapter listviewadapter = new AttendancetrackerListviewadapter(getActivity().getApplicationContext(), studentidlist, namelist, ImageList, rollnumberlist, attendancevaluelist, attendancevalues);
+                                            listviewadapter = new AttendancetrackerListviewadapter(getActivity().getApplicationContext(), studentidlist, namelist, ImageList, rollnumberlist, attendancevaluelist, attendancevalues,arraylist,initialarraylist);
                                             attendancegridview.setAdapter(listviewadapter);
                                             attendancegridview.setNumColumns(2);
+
+                                            search.addTextChangedListener(new TextWatcher() {
+
+                                                @Override
+                                                public void afterTextChanged(Editable arg0) {
+                                                    // TODO Auto-generated method stub
+                                                    String text = search.getText().toString().toLowerCase(Locale.getDefault());
+                                                    listviewadapter.filter(text);
+                                                }
+
+                                                @Override
+                                                public void beforeTextChanged(CharSequence arg0, int arg1,
+                                                                              int arg2, int arg3) {
+                                                    // TODO Auto-generated method stub
+                                                }
+
+                                                @Override
+                                                public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+                                                                          int arg3) {
+                                                    // TODO Auto-generated method stub
+                                                }
+                                            });
 
                                             RecentAttendanceListViewAdapter.setNewgenerateclicled(true);
                                             RecentAttendanceListViewAdapter.setgenerateclicked(true);
                                         } else {
 
                                             empty.setVisibility(View.VISIBLE);
+                                            search.setVisibility(View.GONE);
                                             attendancelistview.setVisibility(View.INVISIBLE);
                                             attendancegridview.setVisibility(View.INVISIBLE);
                                             submit.setVisibility(View.INVISIBLE);
@@ -650,6 +711,8 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
             @Override
             public void onClick(View v) {
 
+                search.setVisibility(View.GONE);
+
                 value = RecentAttendanceListViewAdapter.getclicked();
                 generatevalue = RecentAttendanceListViewAdapter.getgenerateclick();
 
@@ -681,7 +744,7 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
                         attendancedate = RecentAttendanceListViewAdapter.getClassdate();
                         ImageList = RecentAttendanceListViewAdapter.getUsermageList();
                         rollnumberlist = RecentAttendanceListViewAdapter.getUserrollnumberlist();
-                        attendancevaluelist = AttendancetrackerListviewadapter.getAttendancelistvalue();
+
                     }else {
                         id = studentidlist;
                         username = namelist;
@@ -691,7 +754,15 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
                         attendancedate = datevalue;
                     }
 
-                    AttendancetrackerListviewadapter adapter = new AttendancetrackerListviewadapter(getActivity().getApplicationContext(), studentidlist, namelist, ImageList,rollnumberlist,attendancevaluelist,attendancevalues);
+                    gettingupdatedlist = AttendancetrackerListviewadapter.getAttendancelistvalue();
+
+                    int length = gettingupdatedlist.size();
+                    attendancevaluelist = new ArrayList<String>(length);
+                    for(int i=0;i<length;i++){
+                        attendancevaluelist.add(i,gettingupdatedlist.get(i).getattendancevalue());
+                    }
+
+                    AttendancetrackerListviewadapter adapter = new AttendancetrackerListviewadapter(getActivity().getApplicationContext(), studentidlist, namelist, ImageList,rollnumberlist,attendancevaluelist,attendancevalues,arraylist,initialarraylist);
                     attendancevaluesfromadapter = adapter.getattendanceValues();
 
                     JSONObject jObject = new JSONObject();
@@ -740,8 +811,13 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
                     String attendancehour = hourlistspinner;
                     String attendancedate = datevalue;
 
-                    AttendancetrackerListviewadapter adapter = new AttendancetrackerListviewadapter(getActivity().getApplicationContext(), studentidlist, namelist, ImageList,rollnumberlist,attendancevaluelist,attendancevalues);
-                    attendancevaluesfromadapter = adapter.getattendanceValues();
+                    gettingupdatedlist = AttendancetrackerListviewadapter.getAttendancelistvalue();
+
+                    int length = gettingupdatedlist.size();
+                    attendancevaluesfromadapter = new ArrayList<String>(length);
+                    for(int i=0;i<length;i++){
+                        attendancevaluesfromadapter.add(i,gettingupdatedlist.get(i).getattendancevalue());
+                    }
 
                     JSONObject jObject = new JSONObject();
 
@@ -784,6 +860,63 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
         });
 
         return view;
+    }
+
+
+    private void getclasslist() {
+
+        sharedPreferences = getActivity().getSharedPreferences(MY_PREFERENCES, MainActivity.MODE_PRIVATE);
+        final String classschoolid = sharedPreferences.getString(loginconfig.key_school_id, "");
+        final String userid = sharedPreferences.getString(loginconfig.key_userid, "");
+        final String school = classschoolid;
+
+        StringRequest classstringrequest = new StringRequest(Request.Method.POST, loginconfig.key_Classdetails_url,
+
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response)
+                    {
+                        JSONObject j =null;
+                        try
+                        {
+                            j = new JSONObject(response);
+                            loginresult = j.optJSONArray("result");
+
+                            sharedPreferences = getActivity().getSharedPreferences(MY_PREFERENCES, MainActivity.MODE_PRIVATE);
+
+                            //creating editor to store values of shared preferences
+                            editor = sharedPreferences.edit();
+
+                            editor.putString(loginconfig.key_class_name, loginresult.toString());
+                            editor.apply();
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError)
+                    {
+                        Toast.makeText(getActivity(), "Connection Response Error", Toast.LENGTH_LONG).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.clear();
+                params.put(loginconfig.key_school_id,school);
+                params.put(loginconfig.key_userid,userid);
+                return params;
+            }
+        };
+        RequestQueue classr1 = Volley.newRequestQueue(getActivity());
+        classr1.add(classstringrequest);
     }
 
     private void getrecentattendancecount() {
@@ -1125,7 +1258,7 @@ public class Teacher_Attendance_Main_Activity extends android.support.v4.app.Fra
                                 empty.setVisibility(View.INVISIBLE);
 
 
-                                recentadapter = new RecentAttendanceListViewAdapter(getActivity(),classidlist,classnamelist,houridlist,hournamelist,absentcountlist,presentcountlist,ondutycountlist,takendatelist,attendancelistview,empty,submit,collegeid,attendancepagename,view,attendancepagemaincontainer,filter,innerfilterlayout,attendancegridview);
+                                recentadapter = new RecentAttendanceListViewAdapter(getActivity(),classidlist,classnamelist,houridlist,hournamelist,absentcountlist,presentcountlist,ondutycountlist,takendatelist,attendancelistview,empty,submit,collegeid,attendancepagename,view,attendancepagemaincontainer,filter,innerfilterlayout,attendancegridview,search);
                                 attendancegridview.setAdapter(recentadapter);
 
                                 previouslistcountvalue = currentlistcountvalue;
