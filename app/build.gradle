@@ -17,7 +17,7 @@ android {
         applicationId "uk.co.yellowrays.collegeinfo.classcubby"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 6
+        versionCode 7
         versionName "1.8.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
@@ -40,7 +40,7 @@ android {
             applicationId 'uk.co.yellowrays.collegeinfo.classcubby'
             targetSdkVersion 23
             testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
-            versionCode 6
+            versionCode 7
             versionName '1.8.2'
         }
     }
@@ -73,6 +73,7 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.0.1'
     compile 'io.reactivex:rxjava:1.0.16'
     compile 'com.android.support:multidex:1.0.0'
+    compile 'org.jsoup:jsoup:1.10.2'
     testCompile 'junit:junit:4.12'
     compile project(':glide-3.4.0')
     compile project(':json-simple-1.1')

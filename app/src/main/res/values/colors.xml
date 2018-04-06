@@ -30,4 +30,7 @@
     <color name="Circlecolor">#F2FAFAFA</color>
     <color name="userinfocolor">#018f99</color>
     <color name="lightrose">#ee5f97</color>
+    <color name="exit">#e53935</color>
+    <color name="stay">#43A047</color>
+    <color name="darktextcolor">#2f3334</color>
 </resources>
